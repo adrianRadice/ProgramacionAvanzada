@@ -11,65 +11,61 @@ public class main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		Secuencia max1 = null;
-		Secuencia max2 = null;
-		Secuencia max = new Secuencia();
+		Secuencia maxPrimerLugar = null;
+		Secuencia maxSegundoLugar = null;
+		Secuencia secuenciaActual = null;
+		
 		Scanner sc = new Scanner(new FileReader("entrada.in"));
 		String etiquetas = sc.nextLine();
 		sc.close();
 		
-		int cant = -1;
+		int cantLatas = -1;
 		for(int i = 0 ; i< etiquetas.length(); i++){
 			Character c = etiquetas.charAt(i);
 			if(c != ' ')
-				cant ++;
-			
-			if(c == 'G')
 			{
-				if(max.getPosInicial() == -1)
-					max.setPosInicial(cant);
-				max.incrementarTamanio();
-			}
-			else if(c != ' ' && max.getPosInicial()!=-1)
-			{
-				if( null == max1 )
+				cantLatas ++;
+				if(c == 'G')
 				{
-					max1 = max.clone();
-				}
-				else if( null == max2 )
-				{
-					if(max.getTamanio()> max1.getTamanio())
-					{
-						max2 = max1.clone();
-						max1 = max.clone();
-					}
+					if(secuenciaActual == null)
+						secuenciaActual = new Secuencia(cantLatas);
 					else
-						max2 = max.clone();
+						secuenciaActual.incrementarTamanio();
 				}
-				else
+				else if(c != ' ' && secuenciaActual != null)
 				{
-					if(max.getTamanio()> max2.getTamanio())
+					if( null == maxPrimerLugar )
+						maxPrimerLugar = secuenciaActual.clone();
+					else if( null == maxSegundoLugar )
 					{
-						if(max.getTamanio() > max1.getTamanio())
+						if(secuenciaActual.getTamanio()> maxPrimerLugar.getTamanio())
 						{
-							max2 = max1.clone();
-							max1 = max.clone();
+							maxSegundoLugar = maxPrimerLugar.clone();
+							maxPrimerLugar = secuenciaActual.clone();
 						}
 						else
-						{
-							max2 = max.clone();
-						}
+							maxSegundoLugar = secuenciaActual.clone();
 					}
+					else if(secuenciaActual.getTamanio()> maxSegundoLugar.getTamanio())
+					{
+							if(secuenciaActual.getTamanio() > maxPrimerLugar.getTamanio())
+							{
+								maxSegundoLugar = maxPrimerLugar.clone();
+								maxPrimerLugar = secuenciaActual.clone();
+							}
+							else
+								maxSegundoLugar = secuenciaActual.clone();
+					}
+					secuenciaActual = null;
 				}
-				max = new Secuencia();
 			}
 		}
 		
 		PrintWriter salida = new PrintWriter(new File("salida.out"));
-		salida.println(cant);
-		salida.println(max1.getTamanio());
-		salida.println(max2.getTamanio());
-		salida.println(max1.getPosInicial() - max2.getPosInicial() - (max1.getPosInicial()>max2.getPosInicial() ? max2.getTamanio(): max1.getTamanio()));
+		salida.println(cantLatas);
+		salida.println(maxPrimerLugar.getTamanio());
+		salida.println(maxSegundoLugar.getTamanio());
+		salida.println(Secuencia.getDistancia(maxPrimerLugar,maxSegundoLugar));
 		salida.close();
 		
 	}
