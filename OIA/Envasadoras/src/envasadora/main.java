@@ -35,26 +35,26 @@ public class main {
 				else if(c != ' ' && secuenciaActual != null)
 				{
 					if( null == maxPrimerLugar )
-						maxPrimerLugar = secuenciaActual.clone();
+						maxPrimerLugar = secuenciaActual;
 					else if( null == maxSegundoLugar )
 					{
 						if(secuenciaActual.getTamanio()> maxPrimerLugar.getTamanio())
 						{
-							maxSegundoLugar = maxPrimerLugar.clone();
-							maxPrimerLugar = secuenciaActual.clone();
+							maxSegundoLugar = maxPrimerLugar;
+							maxPrimerLugar = secuenciaActual;
 						}
 						else
-							maxSegundoLugar = secuenciaActual.clone();
+							maxSegundoLugar = secuenciaActual;
 					}
 					else if(secuenciaActual.getTamanio()> maxSegundoLugar.getTamanio())
 					{
 							if(secuenciaActual.getTamanio() > maxPrimerLugar.getTamanio())
 							{
-								maxSegundoLugar = maxPrimerLugar.clone();
-								maxPrimerLugar = secuenciaActual.clone();
+								maxSegundoLugar = maxPrimerLugar;
+								maxPrimerLugar = secuenciaActual;
 							}
 							else
-								maxSegundoLugar = secuenciaActual.clone();
+								maxSegundoLugar = secuenciaActual;
 					}
 					secuenciaActual = null;
 				}

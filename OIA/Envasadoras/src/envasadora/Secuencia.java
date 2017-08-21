@@ -1,6 +1,6 @@
 package envasadora;
 
-public class Secuencia implements Cloneable {
+public class Secuencia {
 
 	public Secuencia(int posInicial)
 	{
@@ -21,19 +21,6 @@ public class Secuencia implements Cloneable {
 	{
 		return ++tamanio;
 	}
-	
-    public Secuencia clone()
-    {
-        Secuencia clone = null;
-        try
-        {
-            clone = (Secuencia) super.clone();
-        } 
-        catch(CloneNotSupportedException e)
-        {
-        }
-        return clone;
-    }
 	
 
 	public static int getDistancia(Secuencia max1, Secuencia max2) {
