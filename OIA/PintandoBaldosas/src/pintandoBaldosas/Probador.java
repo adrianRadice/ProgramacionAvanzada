@@ -74,9 +74,14 @@ public class Probador {
 		Scanner scOut = new Scanner(new File("salida.out"));
 		String out = scOut.next();
 		scOut.close();
-
+		System.out.println(baldosaSinPintar(out));
+		System.out.println(baldosaRepetdia(out));
+		System.out.println(faltaUnColor(out));
+		System.out.println(cambioCantidadDeBaldosas(in,out));
+		System.out.println(baldosaOriginalCambiadaDeColor(in,out));
+		System.out.println(DistintaCantidadDeColores(out));
 		PrintWriter salida = new PrintWriter(new FileWriter("resultadoPrueba.out")); 
-		salida.print((baldosaSinPintar(in)&baldosaRepetdia(in)&faltaUnColor(in)&cambioCantidadDeBaldosas(in,out)&baldosaOriginalCambiadaDeColor(in,out)&DistintaCantidadDeColores(in)));
+		salida.print(!(baldosaSinPintar(in)||baldosaRepetdia(in)||faltaUnColor(in)||cambioCantidadDeBaldosas(in,out)||baldosaOriginalCambiadaDeColor(in,out)||DistintaCantidadDeColores(in)));
 		salida.close();
 		
 	}
