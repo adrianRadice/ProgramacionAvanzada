@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +15,8 @@ public class Main {
 		ArrayList<Vendedor> vendedoras = new ArrayList<Vendedor>();
 		
 		Scanner sc = new Scanner(new File("entrada.in"));
+
+		sc.useLocale(Locale.ENGLISH);
 		
 		for(short i =0, cantVendedoras = sc.nextShort(); i<cantVendedoras; )
 		{
@@ -29,7 +32,7 @@ public class Main {
 		
 		float montoMaximo = -1;
 		boolean empate = true;
-		
+		Vendedor vendedoraGanadora=null;
 		while(empate && N<=10000)
 		{
 			for(int i = 0; i<vendedoras.size(); i++)
@@ -45,6 +48,7 @@ public class Main {
 					if(montoMaximo < montoVentaMayVend){
 						montoMaximo = montoVentaMayVend;
 						empate = false;
+						vendedoraGanadora = vendedora;
 						
 					}
 					else if (montoMaximo == montoVentaMayVend)
@@ -67,7 +71,7 @@ public class Main {
 				salida.println("No se puede desempatar");
 		else
 		{
-			salida.println(vendedoras.get(0).getNumero());
+			salida.println(vendedoraGanadora.getNumero());
 			salida.print(N-1);
 			salida.print(" ");
 			salida.print(montoMaximo);
