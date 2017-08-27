@@ -31,12 +31,7 @@ public class Main {
 		imprimirResultado(pilas.size());
 	}
 	
-	/**
-	 * RECUPERO LAS MESADAS DEL ARCHIVO, ROTANDOLAS PARA QUE QUEDEN ORDENADAS DEL LADO MAYOR AL MENOR
-	 * @param path
-	 * @return
-	 * @throws FileNotFoundException
-	 */
+	
 	public static Mesada[] leerArchivo(final String path) throws FileNotFoundException {
 		Scanner sc = new Scanner(new FileReader(path));
 		int cant = sc.nextInt();
