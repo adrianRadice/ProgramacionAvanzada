@@ -8,16 +8,18 @@ public class Mesada implements Comparable<Mesada> {
 	
 	public Mesada (final int x, final int y)
 	{
-		this.x = x;
-		this.y = y;
+		if(x >= y)
+		{
+			this.x = x;
+			this.y = y;
+		}
+		else
+		{
+			this.x = y;
+			this.y = x;
+		}
 	}
 	
-	public void rotar()
-	{
-		int aux = x;
-		this.x = y;
-		this.y = aux;
-	}
 	
 	@Override
 	public int compareTo(Mesada o) {
@@ -33,14 +35,7 @@ public class Mesada implements Comparable<Mesada> {
 	}
 
 	public boolean apilable(Mesada o) {
-		return  this.x >= o.x && this.y >= o.y;
+		return  this.y >= o.y;
 	}
 
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
 }

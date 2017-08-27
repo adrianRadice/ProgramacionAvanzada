@@ -18,7 +18,7 @@ public class Main {
 		for ( Mesada m : mesadas )
 		{
 			boolean f = true;
-			for ( int i = 0 ; i<pilas.size() && f ; i++ )
+			for ( int i = 0 ; i<pilas.size() ; i++ )
 			{
 				if(pilas.get(i).apilable(m)){
 					pilas.set(i, m);
@@ -26,12 +26,9 @@ public class Main {
 				}
 			}
 			if(f)
-			{
 				pilas.add(m);
-			}
 		}
 		imprimirResultado(pilas.size());
-		
 	}
 	
 	/**
@@ -45,15 +42,8 @@ public class Main {
 		int cant = sc.nextInt();
 		Mesada[]  mesadas = new Mesada[cant];
 		
-		//CON EL CONSTRUCTOR COMENTADO
-		//while(cant>0)
-		//	mesadas[--cant] = new Mesada(sc.nextInt(),sc.nextInt());
-		
-		while(cant>0){
+		while(cant>0)
 			mesadas[--cant] = new Mesada(sc.nextInt(),sc.nextInt());
-			if(mesadas[cant].getX()<mesadas[cant].getY())
-				mesadas[cant].rotar();
-		}
 		
 		sc.close();
 		return mesadas;
