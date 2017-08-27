@@ -24,6 +24,7 @@ public class Main {
 				pilas.add(mesadas[j]);
 		}
 		imprimirResultado(pilas.size());
+		System.out.println("FIN");
 	}
 	
 	
