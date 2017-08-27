@@ -15,18 +15,13 @@ public class Main {
 		ArrayList<Mesada> pilas = new ArrayList<Mesada>();
 		Mesada mesadas [] = leerArchivo("entrada.in");
 		Arrays.sort(mesadas);
-		for ( Mesada m : mesadas )
+		for (int i, j =0; j < mesadas.length; j++ )
 		{
-			boolean f = true;
-			for ( int i = 0 ; i<pilas.size() ; i++ )
-			{
-				if(pilas.get(i).apilable(m)){
-					pilas.set(i, m);
-					f=false;
-				}
-			}
-			if(f)
-				pilas.add(m);
+			for ( i = 0 ; i<pilas.size() && !pilas.get(i).apilable(mesadas[j]) ; i++ );
+			if(pilas.size() > i)
+				pilas.set(i, mesadas[j]);
+			else
+				pilas.add(mesadas[j]);
 		}
 		imprimirResultado(pilas.size());
 	}
