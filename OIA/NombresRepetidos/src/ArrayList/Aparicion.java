@@ -1,4 +1,4 @@
-package Comun;
+package ArrayList;
 
 public class Aparicion implements Comparable<Aparicion> {
 
