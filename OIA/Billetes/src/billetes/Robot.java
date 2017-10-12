@@ -5,39 +5,56 @@ public class Robot {
 	private int posX;
 	private int posY;
 	
+	private Tablero tablero;
+	
 	public Robot(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
 	}
 
 
-	public final void subir(){ 
+	private final void subir(){ 
 		posY++; 
 	}
-	public final void bajar(){ 
+	private final void bajar(){ 
 		posY--;
 	}
-	public final void moverIzquierda(){ 
+	private final void moverIzquierda(){ 
 		posX--;
 	}
-	public final void moverDerecha(){ 
+	private final void moverDerecha(){ 
 		posX++;
 	}
 
-	
-	
-	public final int getPosX() {
-		return posX;
+	public final void mover(final char c){		
+		if ( c == 'N' && tablero.posicionValidaParaMoverse(posX, posY+1) )
+			this.subir();
+		else if ( c == 'S'&& tablero.posicionValidaParaMoverse(posX, posY-1) )
+			this.bajar();
+		else if ( c == 'E'&& tablero.posicionValidaParaMoverse(posX+1, posY) )
+			this.moverDerecha();
+		else if ( c == 'O' && tablero.posicionValidaParaMoverse(posX-1, posY))
+			this.moverIzquierda();
 	}
-
-	public final int getPosY() {
-		return posY;
-	}
-
 
 	@Override
 	public String toString() {
 		return posX + " " + posY;
 	}
+
+	public void setTablero(Tablero tablero) {
+		this.tablero = tablero;		
+	}
+
+
+	public int getPosX() {
+		return posX;
+	}
+
+
+	public int getPosY() {
+		return posY;
+	}
+	
 		
 }

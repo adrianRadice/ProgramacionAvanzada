@@ -1,0 +1,42 @@
+package billetes;
+
+import java.util.ArrayList;
+
+public class Tablero {
+	
+	public final static int ALTURA_MAX = 200;
+	public final static int ANCHO_MAX = 200;
+	public final static int ALTURA_MIN = 1;
+	public final static int ANCHO_MIN = 1;
+	
+	public final int ancho;
+	public final int alto;
+	
+	public ArrayList<Robot> robots;
+	
+	public Tablero(int ancho, int alto) throws Exception {
+		if( ancho > ANCHO_MAX || ancho < ANCHO_MIN || alto > ALTURA_MAX || alto < ALTURA_MIN)
+			throw new Exception("ERROR DIMENSION TABLERO");
+		this.ancho = ancho;
+		this.alto = alto;
+	}
+	
+	public void agregarRobot(Robot robot){
+		robot.setTablero(this);
+		robots.add(robot);
+	}
+	
+	public boolean posicionValidaParaMoverse(int x, int y){
+		return x<=ANCHO_MAX && y<=ALTURA_MAX && x>0 && y>0;
+	}
+	
+	public final int getAncho() {
+		return ancho;
+	}
+
+	public final int getAlto() {
+		return alto;
+	}
+
+	
+}

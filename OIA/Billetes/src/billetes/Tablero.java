@@ -1,5 +1,7 @@
 package billetes;
 
+import java.util.ArrayList;
+
 public class Tablero {
 	
 	public final static int ALTURA_MAX = 200;
@@ -10,41 +12,24 @@ public class Tablero {
 	public final int ancho;
 	public final int alto;
 	
-	public Robot robot;
+	public ArrayList<Robot> robots;
 	
 	public Tablero(int ancho, int alto) throws Exception {
 		if( ancho > ANCHO_MAX || ancho < ANCHO_MIN || alto > ALTURA_MAX || alto < ALTURA_MIN)
 			throw new Exception("ERROR DIMENSION TABLERO");
 		this.ancho = ancho;
 		this.alto = alto;
+		robots = new ArrayList<Robot>();
 	}
 	
-	public void agregarRobot(int posX, int posY){
-		robot = new Robot(posX, posY);
-	}
-
-	public final void moverRobot(final char c){		
-		if ( c == 'N'  && robot.getPosY() < alto )
-			robot.subir();
-		else if ( c == 'S' && robot.getPosY() > 1 )
-			robot.bajar();
-		else if ( c == 'E' && robot.getPosX() < ancho )
-			robot.moverDerecha();
-		else if ( c == 'O' && robot.getPosX() > 1 )
-			robot.moverIzquierda();
+	public void agregarRobot(Robot robot) throws Exception{
+		if(!posicionValidaParaMoverse(robot.getPosX(),robot.getPosY()))
+			throw new Exception("ERROR POSICION INVALIDA");
+		robot.setTablero(this);
+		robots.add(robot);
 	}
 	
-	
-	public final int getAncho() {
-		return ancho;
+	public boolean posicionValidaParaMoverse(int x, int y){
+		return x<=ancho && y<=alto && x>0 && y>0;
 	}
-
-	public final int getAlto() {
-		return alto;
-	}
-
-	public final Robot getRobot() {
-		return robot;
-	}
-	
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/LetrasExtremas/src/letrasExtremas/main.java"/>
+<listEntry value="/Billetes/src/billetes/Main.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="letrasExtremas.main"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="LetrasExtremas"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="billetes.Main"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Billetes"/>
 </launchConfiguration>

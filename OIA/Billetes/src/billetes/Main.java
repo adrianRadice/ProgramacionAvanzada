@@ -16,23 +16,29 @@ public class Main extends EjercicioOIA {
 	public void resolver(){
 		try {
 			Scanner sc = new Scanner(entrada);
-			int posX=sc.nextInt();
-			int posY=sc.nextInt();
-			Tablero t = new Tablero(sc.nextInt(),sc.nextInt());
-			t.agregarRobot(posX, posY);
+			
+			Robot robot = new Robot(sc.nextInt(), sc.nextInt());
+			Tablero tablero = new Tablero(sc.nextInt(),sc.nextInt());
+			tablero.agregarRobot(robot);
 			String ordenes= sc.next();
-			for(int i=0;i<ordenes.length();i++)
-				t.moverRobot( ordenes.charAt(i));
 			sc.close();
+			
+			if(ordenes.length() > 250){
+				throw new Exception("CANTIDAD DE ORDENES INVALIDA");
+			}
+			
+			for(int i=0;i<ordenes.length();i++)
+				robot.mover( ordenes.charAt(i) );
+			
+			
 			FileWriter fw=new FileWriter(salida);
 			PrintWriter pw = new PrintWriter(fw);
-			pw.println(t.robot);
+			
+			pw.println(robot);
 			pw.close();
 			
-			
-			
 		} catch (Exception e) {
-			System.out.println("ERROR DIMENSION");
+			System.out.println(e.getMessage());
 		}
 	}
 

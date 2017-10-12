@@ -1,28 +1,3 @@
-INDEX VERSION 1.129+/Users/adrian/git/Programacion Avanzada/Practica/OIA/.metadata/.plugins/org.eclipse.jdt.core
-2309822661.index
-3969190818.index
-4158956476.index
-2718728712.index
-3266567714.index
-518397319.index
-3637929226.index
-156905802.index
-1260736551.index
-2961435131.index
-3712507179.index
-1271342938.index
-357478278.index
-609331307.index
-1819685514.index
-3321539481.index
-2545238116.index
-659411456.index
-1384487945.index
-1524350763.index
-487047335.index
-3302703152.index
-4166604845.index
-1522203103.index
+INDEX VERSION 1.129+/Users/adrian/Desktop/ProgramacionAvanzada/OIA/.metadata/.plugins/org.eclipse.jdt.core
 1363262221.index
-4018134042.index
-1833648217.index
+1671805134.index
