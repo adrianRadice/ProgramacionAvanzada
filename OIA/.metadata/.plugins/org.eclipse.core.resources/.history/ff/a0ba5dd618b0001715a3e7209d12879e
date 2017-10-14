@@ -1,0 +1,34 @@
+package juegoConLetras;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class test {
+
+	@Test
+	public void test() {
+		char[] palabra = {'a','d','r','i'};
+		String sopa = "pepotadriaanadianpopa";
+		
+		int index =0;
+		
+		for(int i= 0; i<sopa.length(); i++){
+			
+			if(sopa.charAt(i) == palabra[index]){
+				index++;
+				if(index >= palabra.length){
+					Assert.assertTrue(true);
+					return;
+				}
+			}
+			else
+				index=0;
+			
+		}
+		Assert.assertTrue(false);
+		
+	}
+
+}

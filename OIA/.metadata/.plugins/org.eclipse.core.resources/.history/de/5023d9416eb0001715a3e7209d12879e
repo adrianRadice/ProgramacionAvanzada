@@ -1,0 +1,35 @@
+package juegoConLetras;
+
+public class Palabra {
+	private char[] palabra;
+	
+	public Palabra(String palabra){
+		this.palabra = palabra.toCharArray();
+	}
+
+	public char[] getLetras() {
+		return palabra;
+	}
+	
+	public int Tamanio(){
+		return palabra.length;
+	}
+	
+	private int index = 0;
+	
+	public boolean evaluarCaracter(char c){
+		
+		if(palabra[index]==c){
+			index++;
+			if(index == palabra.length)
+				return true;
+		}
+		else 
+			index = 0;
+		
+		
+		return false;
+	}
+	
+
+}

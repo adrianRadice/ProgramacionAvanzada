@@ -184,3 +184,13 @@ org.eclipse.core.internal.resources.ResourceException: File not found: /Users/ad
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 org.eclipse.core.resources 4 368 2017-10-11 23:55:35.804
 !MESSAGE File not found: /Users/adrian/Desktop/ProgramacionAvanzada/OIA/LetrasExtremas/bin/letrasExtremas/main.class.
+!SESSION 2017-10-13 09:14:25.150 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/adrian/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/adrian/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-10-13 09:14:27.425
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

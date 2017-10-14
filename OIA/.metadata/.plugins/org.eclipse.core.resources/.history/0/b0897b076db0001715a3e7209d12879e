@@ -1,0 +1,15 @@
+package juegoConLetras;
+
+public class Palabra {
+	private char[] palabra;
+	
+	public Palabra(String palabra){
+		this.palabra = palabra.toCharArray();
+	}
+
+	public char[] getPalabra() {
+		return palabra;
+	}
+	
+
+}

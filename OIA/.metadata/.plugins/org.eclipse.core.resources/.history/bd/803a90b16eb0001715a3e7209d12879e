@@ -1,0 +1,32 @@
+package juegoConLetras;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class test {
+
+	@Test
+	public void test() {
+		Palabra palabra = new Palabra("adrian");
+		String sopa = "pepnairdaotadrianaddrianpopa";
+
+		for(int i= 0; i<sopa.length(); i++){
+			if(palabra.evaluarCaracter(sopa.charAt(i))){
+				Assert.assertTrue(true);
+				return;
+			}
+		}
+		
+		for(int i= 0; i<sopa.length(); i++){
+			if(palabra.evaluarCaracter(sopa.charAt(i))){
+				Assert.assertTrue(true);
+				return;
+			}
+		}
+		Assert.assertTrue(false);
+		
+	}
+
+}
