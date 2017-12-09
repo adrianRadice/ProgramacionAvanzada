@@ -1,0 +1,18 @@
+package personaje;
+
+public class Caballero  extends Unidad{
+	public Caballero(){
+		super(200);
+	}
+	
+	@Override
+	public int getAtaque() {
+		return 50;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 3;
+	}
+	
+}

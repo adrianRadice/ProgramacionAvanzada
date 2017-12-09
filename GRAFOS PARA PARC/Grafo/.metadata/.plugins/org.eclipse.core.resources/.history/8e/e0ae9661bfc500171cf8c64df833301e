@@ -1,0 +1,51 @@
+package grafo;
+;
+
+public class Grafo{
+
+	private MatrizSimetrica aristas;
+	private Nodo[] nodos;
+	
+	public Grafo(int cantidadDeNodos,int infinito){
+		aristas= new MatrizSimetrica(cantidadDeNodos,infinito);
+		nodos = new Nodo[cantidadDeNodos];
+	}
+
+	public int getCantidadDeNodos() {
+		// TODO Auto-generated method stub
+		return aristas.getOrdenMatriz();
+	}
+
+	private int colorear() {
+		int color=1;   
+		int columna;
+		
+		nodos[0].setColor(color);
+		for (int nodoAcolorear = 1; nodoAcolorear < cantidadDeNodosEntrada; nodoAcolorear++)
+		{
+			//coloreo el nodo que tomo  
+			nodos[nodoAcolorear].setColor(color);
+
+			columna = 0;
+			while ( columna < nodos.length){
+				//VERIFICO SI ES ADYACENTE Y SI EL COLOR EN EL QUE ESTOY ACTUALMENTE PARADO ES EL MISMO DE SER ASI DEBERIA CAMBIARLO
+				if(	aristas.getValue(nodos[nodoAcolorear].getIndex(), nodos[columna].getIndex())  && //ES ADYACENTE AL PIVOT
+					nodos[nodoAcolorear].getIndex() == nodos[columna].getColor()//EL ADYACENTE ES DEL MISMO COLOR
+				){
+					color++;
+					if(color > cantidadDeColores) //CREE UN NUEVO COLOR
+						cantidadDeColores = color; 
+					else
+						columna= -1;
+					nodos[nodoAcolorear].setColor(color);
+				}
+				columna++;
+			}
+			color = 1;
+		}
+		return cantidadDeColores;
+	}
+	
+	
+	
+}

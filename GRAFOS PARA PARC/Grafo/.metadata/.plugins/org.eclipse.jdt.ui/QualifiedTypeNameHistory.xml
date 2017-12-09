@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.PriorityQueue"/>
+<fullyQualifiedTypeName name="grafo.GrafoNoDirigido"/>
+<fullyQualifiedTypeName name="grafo.Nodo"/>
+<fullyQualifiedTypeName name="grafo.Arista"/>
+<fullyQualifiedTypeName name="grafo.NodoGenerico"/>
+<fullyQualifiedTypeName name="algoritmos.Dijkstra"/>
+<fullyQualifiedTypeName name="grafo.Dijkstra"/>
+<fullyQualifiedTypeName name="grafo.Grafo"/>
+<fullyQualifiedTypeName name="grafo.Digrafo"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="grafo.Igrafo"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>

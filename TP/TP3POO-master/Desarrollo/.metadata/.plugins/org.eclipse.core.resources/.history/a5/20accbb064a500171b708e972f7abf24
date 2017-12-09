@@ -1,0 +1,23 @@
+package personaje;
+
+import item.Unidad;
+
+public class Arquero extends Unidad {
+
+	public Arquero() {
+		super(50);
+	}
+	
+
+	@Override
+	public int getAtaque() {
+		return 5;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 20;
+	}
+	
+
+}

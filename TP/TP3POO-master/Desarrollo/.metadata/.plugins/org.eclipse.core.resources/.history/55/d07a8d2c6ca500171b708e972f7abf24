@@ -1,0 +1,21 @@
+package personaje;
+
+public class Lancero  extends Unidad{
+
+	public Lancero(int posicion){
+		super(150,posicion,1);
+	}
+	
+	@Override
+	public double getAtaque() {
+		return 25;
+	}
+
+	@Override
+	public boolean puedoAtacar(Unidad u){
+		int distancia = Math.abs(u.getPosicion() - u.getPosicion() );
+		return super.puedoAtacar(u) && distancia >= 1 && distancia <= 3 ;
+	}
+
+	
+}

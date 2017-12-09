@@ -1,0 +1,62 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class CSend extends Thread implements IMensaje{
+
+	private BufferedReader bufferConsola = new BufferedReader( new InputStreamReader(System.in) );
+	private DataOutputStream salidaSocket;
+
+	public CSend(String nombre,DataOutputStream salidaSocket ) {
+		super(nombre);		
+		this.salidaSocket = salidaSocket;
+	}
+	
+	public void run(){
+	   boolean run = true;
+	   try 
+	   {	
+		   while(run)
+		   {
+				String mensaje = leerConsola();
+				
+				if(mensaje.equals(":q!"))
+				{	
+					run = false;
+					salidaSocket.writeUTF(":q!");
+				}
+				else
+					salidaSocket.writeUTF(mensaje);
+				
+				bufferConsola.close();
+		   } 
+	   }
+	   catch (IOException e) {
+			e.printStackTrace();
+	   }
+	   finally
+	   {
+		   try{
+				salidaSocket.close();
+				bufferConsola.close();
+		   }
+		   catch (IOException e) {
+				e.printStackTrace();
+		   }
+	   }
+		
+	}
+	
+
+	
+	public String leerConsola() throws IOException{
+		System.out.print(">:");
+		return  bufferConsola.readLine();
+	}
+
+	
+	
+}

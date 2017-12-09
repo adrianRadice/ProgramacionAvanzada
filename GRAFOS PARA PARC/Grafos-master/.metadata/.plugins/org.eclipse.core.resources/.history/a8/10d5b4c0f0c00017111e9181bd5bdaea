@@ -1,0 +1,46 @@
+package algoritmos;
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+import grafo.Arista;
+import grafo.Grafo;
+import grafo.GrafoDirigido;
+import grafo.GrafoNoDirigido;
+import grafo.Nodo;
+import grafo.NodoConCosto;
+
+public class Dijkstra {
+	public static ArrayList<Integer> obtenerConRecorrido(GrafoNoDirigido grafo, Nodo nodoInicial) throws Exception{
+		
+		ArrayList<Integer> distancia = new ArrayList<Integer>();
+		ArrayList<Boolean> visitado = new ArrayList<Boolean>();
+		PriorityQueue<NodoConCosto> cola = new PriorityQueue<>();
+		
+		for(int j = 0; j < grafo.getCantidadDeNodos(); j++) {
+			distancia.add(grafo.getValorInfinito());
+			visitado.add(false);
+		}
+		
+		distancia.set(nodoInicial.getNumero(),0);
+		cola.add(new NodoConCosto(nodoInicial.getNumero(),0));
+		
+		while(!cola.isEmpty())
+		{
+			NodoConCosto nodoActual = cola.poll();
+			visitado.set(nodoActual.getNumero(), true);
+			for(int ady = nodoActual.getNumero()+1; ady < grafo.getCantidadDeNodos(); ady++)
+			{
+				Arista a = grafo.getArista(nodoActual, new Nodo(ady));
+				if(a != null)
+				{
+					int dist = a.getPeso()+nodoActual.getPeso();
+				}
+				
+			}
+		}
+		
+		
+ 		return distancia;
+	}
+}

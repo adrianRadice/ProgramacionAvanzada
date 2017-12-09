@@ -1,0 +1,31 @@
+package unidad;
+
+import item.Peleable;
+import item.Puñal;
+import item.Unidad;
+
+public class UnidadSoldados extends Unidad{
+
+	public UnidadSoldados(){
+		super(200);
+	}
+	
+	@Override
+	public int getAtaque() {
+		return 10;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 100;
+	}
+	
+	public static void main(String[] args){
+		Peleable u = new UnidadSoldados();
+		u = new Puñal(u);
+		System.out.println(u.getAtaque());
+		System.out.println(u.getDefensa());
+		System.out.println(u.getEnergia());
+	}
+	
+}

@@ -1,0 +1,48 @@
+Seleccion:
+Recorro los elementos (0 a n - 1) a ordenar, y tomando de un elemento lo intercambio con el 
+menor(ascendente) o el mayor(descendente). 
+La comparacion es con menor o mayor estricto. 
+
+Operaciones Basicas:
+	Intercambio.
+	Comparacion.
+
+Cantidad de operaciones basicas en el peor caso:
+	Intercambio: n*(n-1)/2.
+	Comparacion: n*(n-1)/2.
+	
+Cantidad de operaciones basicas en el mejor caso:
+	Intercambio: 0
+	Comparacion: n-1
+
+
+Ejemplo Descendente
+5 8 3 5' 2 1 7 6 => t = 0
+8 5 3 5' 2 1 7 6 => t = 1
+8 7 3 5' 2 1 5 6 => t = 2
+8 7 6 5' 2 1 5 3 => t = 3
+8 7 6 5' 2 1 5 3 => t = 4
+8 7 6 5' 5 1 2 3 => t = 5
+8 7 6 5' 5 3 2 1 => t = 6
+8 7 6 5' 5 3 2 1 => t = 7
+8 7 6 5' 5 3 2 1 => t = 8
+
+Ejemplo Ascendente:
+>5 8 3 5' 2 1 7 6 => t = 0
+1 >8 3 5' 2 5 7 6 => t = 1
+1 2 >3 5' 8 5 7 6 => t = 2
+1 2 3 >5' 8 5 7 6 => t = 3
+1 2 3 5' >8 5 7 6 => t = 4
+1 2 3 5' 5 >8 7 6 => t = 5
+1 2 3 5' 5 6 >7 8 => t = 6
+1 2 3 5' 5 6 7 >8 => t = 7
+1 2 3 5' 5 6 7 8 => t = 8
+
+Caracteristicas:
+	Sensibilidad: No
+	Estabilidad:  No
+
+Big O: n^2
+ Toma la cantidad de operaciones, quito las constantes y los terminos de orden menor y obtengo n^2
+ n*(n-1)/2 => (n^2 - n)/2 => n^2
+

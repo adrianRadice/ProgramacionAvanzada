@@ -1,0 +1,10 @@
+1509960832910	Extract method 'ordenMatriz'
+1509961721169	Extract method 'convertir2Da1D'
+1509963114011	Delete element
+1509963354098	Rename local variable 'j'
+1509976817748	Rename local variable 'conjunto'
+1509977225745	Rename type 'Grafo'
+1509977234351	Delete element
+1509978513800	Rename type 'GrafoNDPN'
+1509980581549	Rename method 'escribir'
+1509982062610	Delete element

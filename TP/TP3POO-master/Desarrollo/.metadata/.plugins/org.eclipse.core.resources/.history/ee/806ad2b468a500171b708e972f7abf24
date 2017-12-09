@@ -1,0 +1,37 @@
+package personaje;
+
+public class Caballero  extends Unidad{
+	public Caballero(int posicion){
+		super(200, posicion);
+	}
+	
+	@Override
+	public int getAtaque() {
+		return 50;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 3;
+	}
+
+	
+	@Override
+	public boolean puedoAtacar(Unidad u){
+		int distancia = Math.abs(u.getPosicion() - u.getPosicion() );
+		return super.puedoAtacar(u) && distancia >= 1 && distancia <= 2 ;
+	}
+
+	@Override
+	public int getDefensa() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getPosicion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

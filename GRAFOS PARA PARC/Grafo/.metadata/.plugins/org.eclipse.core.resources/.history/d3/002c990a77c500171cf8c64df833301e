@@ -1,0 +1,26 @@
+package grafo;
+
+public class Arista {
+	private Nodo nodoIzq;
+	private Nodo nodoDer;
+	
+	public Arista(Nodo nodoIzq, Nodo nodoDer) {
+		super();
+		this.nodoIzq = nodoIzq;
+		this.nodoDer = nodoDer;
+	}
+	
+	public Nodo getNodoIzq() {
+		return nodoIzq;
+	}
+	public void setNodoIzq(Nodo nodoIzq) {
+		this.nodoIzq = nodoIzq;
+	}
+	public Nodo getNodoDer() {
+		return nodoDer;
+	}
+	public void setNodoDer(Nodo nodoDer) {
+		this.nodoDer = nodoDer;
+	}
+	
+}

@@ -1,0 +1,19 @@
+package grafo.generadores;
+
+import java.util.Random;
+
+import grafo.Grafo;
+import grafo.MatrizSimetrica;
+
+public class GeneradorAleatorioProbabilistico {
+	public static Grafo generar(int cantidadNodos, double probabilidad){
+		Random random = new Random();
+		Grafo grafo = new Grafo(cantidadNodos);
+		for(int i=0 ; i< cantidadNodos; i++){
+			for(int j=i+1; j<cantidadNodos; j++){
+				grafo.addArista(i, j, random.nextDouble() < probabilidad);
+			}
+		}
+		return grafo;
+	}
+}

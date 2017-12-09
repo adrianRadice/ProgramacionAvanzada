@@ -1,0 +1,38 @@
+package item;
+
+import personaje.Unidad;
+
+/**
+ * @author adrian
+ * <h1>Clse Escudo</h1>
+ * <h4>Clase que permite agregar las funcionalidades que implica el poseer una escudo</h4>
+ * <h5>DEFENSA: 40% mas </h5>
+ * <h6>Metodos:</h6>
+ *<ul>
+ *		<li>getDefensa()</li>
+ *		<li>toString()</li>
+ *</ul>
+ *@see item.ItemDecorator
+ *@see personaje.Unidad
+ */
+public class Puñal extends ItemDecorator {
+	
+	public Puñal(Unidad peleable){
+		super(peleable);
+	}
+	public double getAtaque(){
+		return getUnidad().getAtaque()+3;
+	}
+	public double getDefensa(double valor){
+		return getUnidad().getDefensa(valor)+3;
+	}
+	/**
+	 * Imprime el estado del personaje
+	 * */
+	public String toString() {
+		return getUnidad() + ", Punial";
+	}
+	
+	
+	
+}

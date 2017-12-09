@@ -1,0 +1,23 @@
+import item.Peleable;
+
+public class equipamiento implements Peleable{
+
+	@Override
+	public double getAtaque() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getEnergia() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getDefensa() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

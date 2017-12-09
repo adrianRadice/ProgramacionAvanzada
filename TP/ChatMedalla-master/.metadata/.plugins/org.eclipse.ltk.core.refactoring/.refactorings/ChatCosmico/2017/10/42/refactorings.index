@@ -1,0 +1,12 @@
+1508024201086	Delete element
+1508024318830	Rename field 'soc'
+1508024335354	Rename local variable 'rcv'
+1508024350952	Rename local variable 'snd'
+1508024362522	Rename local variable 'hiloDeLecturas'
+1508024398238	Rename local variable 'hiloParaRecepcion'
+1508024405883	Rename local variable 'hiloParaEnvio'
+1508024598890	Rename field 'br'
+1508024642591	Rename field 'output'
+1508024654012	Rename local variable 'output'
+1508024964570	Move compilation unit
+1508025096929	Delete element

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.management.openmbean.ArrayType"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="grafo.MatrizSimetrica"/>
+<fullyQualifiedTypeName name="grafo.generadores.GeneradorAleatorioProbabilistico"/>
+<fullyQualifiedTypeName name="grafo.Grafo"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="grafo.generadores.GeneradorAleatorioConPorcentaje"/>
+</qualifiedTypeNameHistroy>

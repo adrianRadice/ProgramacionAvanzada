@@ -1,0 +1,21 @@
+package Herramientas;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Consola {
+
+	private final static String PROMT = ">:";
+	
+	private final BufferedReader buffer;
+	
+	public Consola(){
+		 buffer = new BufferedReader( new InputStreamReader(System.in) );
+	}
+	
+	public final String leer() throws IOException{
+		System.out.print(PROMT);
+		return buffer.readLine();
+	}
+}

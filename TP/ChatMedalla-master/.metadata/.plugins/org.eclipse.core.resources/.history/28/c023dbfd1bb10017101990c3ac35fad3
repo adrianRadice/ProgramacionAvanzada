@@ -1,0 +1,9 @@
+package Cliente;
+
+public class CRecibe extends Thread{
+
+	public CRecibe(String nombre) {
+		super(nombre);
+	}
+
+}

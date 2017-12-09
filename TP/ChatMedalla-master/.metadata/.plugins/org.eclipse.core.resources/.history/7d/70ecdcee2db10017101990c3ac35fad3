@@ -1,0 +1,43 @@
+package Cliente;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+
+public class CRecibe extends Thread{
+	private DataInputStream input;
+	private boolean run=false;
+	
+	public CRecibe(String nombre,DataInputStream input ) {
+		super(nombre);		
+		this.input = input;
+		
+	}
+	
+	public void run(){	
+		run = true;	
+		while(run){
+			try {
+			  System.out.println(	input.readUTF() );
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		try {
+			input.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void salir(){
+		run = false;
+		
+	}
+	
+	
+	
+
+}

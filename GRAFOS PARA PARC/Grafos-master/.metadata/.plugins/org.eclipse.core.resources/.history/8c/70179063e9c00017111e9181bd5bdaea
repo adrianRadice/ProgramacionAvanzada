@@ -1,0 +1,60 @@
+package grafo;
+
+public class MatrizSimetrica {
+	private int[] matriz;
+	private int valorInfinito;
+	
+	public MatrizSimetrica(final int cantidadDeNodos, final int valorInfinito)
+	{
+		this.matriz = new int[calcularTamanio(cantidadDeNodos)];
+		this.valorInfinito = valorInfinito;
+		inicializarMatriz();
+	}
+	
+	public int getPosicion(final int fila, final int columna) {
+		int cantidadDeNodos = getOrdenMatriz();
+		return matriz[fila*cantidadDeNodos+columna-(fila*fila+3*fila+2)/2];
+	}
+	
+	public void setPosicion(final int fila, final int columna, final int value) {
+		int cantidadDeNodos = getOrdenMatriz();
+		if(fila<columna)
+			matriz[fila*cantidadDeNodos+columna-(fila*fila+3*fila+2)/2] = value;
+		else
+			matriz[columna*cantidadDeNodos+fila-(columna*columna+3*columna+2)/2] = value;
+		
+	}
+	
+	public void inicializarMatriz()
+	{
+		for (int i = 0; i < matriz.length; i++) {
+			matriz[i] = valorInfinito;
+		}
+	}
+	
+	public int getOrdenMatriz() {
+		return (int)(1+Math.sqrt((1+8*matriz.length))/2);
+	}
+	
+	public int calcularTamanio(final int cantidadDeNodos) {
+		return cantidadDeNodos*(cantidadDeNodos-1)/2;
+	}
+	
+	public static void intercambio(int x, int y)
+	{
+		int aux = x;
+		x = 12;
+		y = 2;
+	}
+	
+	public static void main(String[] args) {
+		int x=0;
+		int y=1;
+		System.out.println(x);
+		System.out.println(y);
+		intercambio(x,y);
+		System.out.println(x);
+		System.out.println(y);
+	}
+	
+}

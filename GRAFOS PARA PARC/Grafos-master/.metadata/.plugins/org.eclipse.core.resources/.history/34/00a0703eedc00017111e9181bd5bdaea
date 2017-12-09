@@ -1,0 +1,32 @@
+package grafo;
+
+public class GrafoNoDirigido {
+	private MatrizSimetrica matrizSimetrica;
+	
+	public GrafoNoDirigido(final int cantidadDeNodos,final int valorInfinito) {
+		matrizSimetrica = new MatrizSimetrica(cantidadDeNodos, valorInfinito);
+	}
+	
+	public void setConexion(Arista arista) throws Exception {
+		matrizSimetrica.setPosicion(arista.getNodoInicial().getNumero(),arista.getNodoFinal().getNumero(), arista.getPeso());
+	}
+	
+	public Arista getArista(Nodo nodoInicial, Nodo nodoFinal) throws Exception {
+		
+		int distancia = matrizSimetrica.getPosicion(nodoInicial.getNumero(), nodoFinal.getNumero());
+		if(distancia == matrizSimetrica.getValorInfinito())
+			return null;
+		else
+			return new Arista(nodoInicial,nodoFinal,distancia);
+	}
+	
+	public int getCantidadDeNodos() {
+		return matrizSimetrica.getOrdenMatriz();
+	}
+
+	@Override
+	public String toString() {
+		return "GrafoNoDirigido [matrizSimetrica=" + matrizSimetrica + "]";
+	}
+	
+}

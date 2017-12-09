@@ -1,0 +1,79 @@
+package item;
+
+import personaje.Unidad;
+/**
+ * @author adrian
+ *
+ */
+public abstract class ItemDecorator extends Unidad {
+	private Unidad peleable;
+
+	public ItemDecorator(Unidad peleable) {
+		this.peleable = peleable;
+	}
+
+	public Unidad getPeleable() {
+		return this.peleable;
+	}
+
+	public boolean conVida(){
+		return this.peleable.conVida();
+	}
+
+	public boolean mismoPersonaje(Unidad victima){
+		return this.peleable.mismoPersonaje(victima);
+	}
+
+	public int getNumero() {
+		return this.peleable.getNumero();
+	}
+
+	public double getSalud(){
+		return this.peleable.getSalud();
+	}
+
+	public int getPosicion(){
+		return this.peleable.getPosicion();
+	}
+	
+	public void setSalud(double d) {
+		this.peleable.setSalud(d);		
+	}
+	
+	public boolean puedeRestauraEnergia() {
+		return getPeleable().puedeRestauraEnergia();
+	}
+
+	public double getAtaqueBase() {
+		return getPeleable().getAtaqueBase();
+	}
+
+	public double getDefensaBase() {
+		return getPeleable().getDefensaBase();
+	}
+
+	@Override
+	public double getGastoEnergetico() {
+		return getPeleable().getGastoEnergetico()/2;
+	}
+
+	public int getEnergiaMaxima() {
+		return getPeleable().getEnergiaMaxima()*2;
+	}
+	
+	//no se si pueden ser abstract
+	public double getAtaque(){
+
+		return this.peleable.getAtaque()
+	}
+	public int getEnergia() {
+
+		return this.peleable.getEnergia();
+	}
+	public double getDefensa() {
+		return this.peleable.getDefensa();
+	}
+
+	
+
+}

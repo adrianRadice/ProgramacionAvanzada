@@ -1,0 +1,33 @@
+package grafo;
+
+public class GrafoNDPN {
+
+	private MatrizSimetrica distancias;
+	
+	public GrafoNDPN(int cantidadNodos) {
+		// TODO Auto-generated constructor stub
+		distancias = new MatrizSimetrica(cantidadNodos);
+	}
+
+	public void addArista(int nodo1, int nodo2, boolean valor) {
+		// TODO Auto-generated method stub
+		distancias.setValor(nodo1, nodo2, valor);
+	}
+
+	@Override
+	public String toString() {
+		return "Grafo [distancias=" + distancias + "]";
+	}
+
+	public int getMaximaCantidadDeAristasPosibles() {
+		// TODO Auto-generated method stub
+		return distancias.getSize();
+	}
+
+	public boolean getDistancia(int i, int j) {
+		// TODO Auto-generated method stub
+		return distancias.getValor(i, j);
+	}
+
+	
+}

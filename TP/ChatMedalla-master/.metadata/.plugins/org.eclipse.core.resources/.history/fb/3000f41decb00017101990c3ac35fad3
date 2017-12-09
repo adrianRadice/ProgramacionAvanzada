@@ -1,0 +1,54 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+public class Cliente {
+
+	private final String ip = "localhost";
+	
+	private BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+	private DataInputStream input;
+	private DataOutputStream output;
+	
+	private Socket soc;
+
+	
+	public Cliente(){
+		try
+		{
+			soc = new Socket(ip,1000);
+			input = new DataInputStream(soc.getInputStream());
+			output = new DataOutputStream(soc.getOutputStream());	
+			Thread t = new ClienteEnviar("send",output).start();
+			new ClienteRecibir("recibir",input).start();
+			t.wait();
+			
+			
+		}
+		catch(Exception e){
+			
+		}
+	}
+	
+	public void chatear(){
+		
+	}
+	
+	
+	
+	
+	public void salir() throws IOException{
+		soc.close();
+	}
+	
+	public static void main(String args[]){
+		 new Cliente();
+	}
+	
+	
+}

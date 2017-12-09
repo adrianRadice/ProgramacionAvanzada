@@ -1,0 +1,75 @@
+package Servidor;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+public class ServidorHilo extends Thread {
+	private Servidor servidor;
+	private Socket cliente;
+	private DataInputStream input;
+	
+	
+	public ServidorHilo(String nick,Socket cliente, Servidor s) throws IOException {
+		super(nick);
+		this.servidor = s;
+		this.cliente = cliente;
+		input = new DataInputStream(cliente.getInputStream());
+		DataOutputStream d =new DataOutputStream(cliente.getOutputStream());
+		d.writeUTF("Usuarios actuales: ");
+		Enumeration e = servidor.getClientes().keys();
+		String clave;
+		while( e.hasMoreElements() ){
+		  clave = (String) e.nextElement();
+		  d.writeUTF(clave);
+		}
+	}
+	
+	public void run() {	
+		String texto = "";
+		try {
+			texto = input.readUTF();
+			while(!texto.equals("exit")) {
+				if(texto.charAt(0)=='@'){
+					String nickDestino =texto.split(" ")[0].substring(1);
+					Socket destino = servidor.getClientes().get(nickDestino);
+					if(destino != null){
+						DataOutputStream d =
+						new DataOutputStream(destino.getOutputStream());
+						d.writeUTF(texto.substring(nickDestino.length()));
+						d.close();
+					}
+					else{
+						DataOutputStream d =
+						new DataOutputStream(destino.getOutputStream());
+						d.writeUTF("Destino Invalido");
+						d.close();
+					}
+				}
+				else{
+					for(Socket indice : servidor.getClientes().values()) {
+						if(indice != cliente) {
+							
+							DataOutputStream d =
+									new DataOutputStream(indice.getOutputStream());
+									d.writeUTF(texto);
+									d.close();
+									
+						}
+					}
+				}
+				texto = input.readUTF();
+			}
+			input.close();
+			cliente.close();
+			servidor.salir(this);
+		} catch (Exception e) {
+			System.out.println("El cliente se ha desconectado");
+		}
+	}
+	
+
+}

@@ -1,0 +1,14 @@
+package test;
+
+import grafo.generadores.GeneradorAleatorioConPorcentaje;
+import grafo.generadores.GeneradorAleatorioProbabilistico;
+
+public class main {
+
+	public static void main(String[] args) {
+		System.out.println(GeneradorAleatorioProbabilistico.generar(5,60));
+		System.out.println(GeneradorAleatorioConPorcentaje.generar(5,60));
+
+	}
+
+}

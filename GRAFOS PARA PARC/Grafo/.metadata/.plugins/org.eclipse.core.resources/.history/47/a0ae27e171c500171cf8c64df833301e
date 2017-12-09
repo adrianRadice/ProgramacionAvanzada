@@ -1,0 +1,22 @@
+package grafo;
+
+public class MatrizSimetrica
+{
+	//SI ES NO PONDERADO EL GRAFO CON BOOLEAN SERIA MAS QUE SUFICIENTE
+	private int vec[];
+
+	public MatrizSimetrica(int cantidadDeNodos){
+		vec = new vec[getSizeArray(cantidadDeNodos)];
+	}
+
+	private static int getSizeArray(int cantidadDeNodos){
+		return cantidadDeNodos * (cantidadDeNodos -1) / 2;
+	}
+
+	public void incializarMatriz(int value){
+		for(int i=0; i<vec.lenght; i++){
+			vec[i] = 0;
+		}
+	}
+
+}

@@ -1,0 +1,12 @@
+package test;
+
+import grafo.generadores.GeneradorAleatorioProbabilistico;
+
+public class main {
+
+	public static void main(String[] args) {
+		System.out.println(GeneradorAleatorioProbabilistico.generar(5,0.1));
+
+	}
+
+}

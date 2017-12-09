@@ -1,0 +1,22 @@
+import item.Capa;
+import item.Peleable;
+import personaje.Soldado;
+import personaje.Unidad;
+
+public class juego {
+
+	public static void main(String[] args) {
+		
+		Peleable u1 = new Soldado(200);
+		Peleable u2 = new Soldado(200);
+		
+		
+		System.out.println(u1.puedeAtacar(u2));
+		System.out.println(u2.conVida());
+		for(int i = 1 ; i <= 80 ; i++ )
+			((Unidad) u1).atacar(u2);
+		System.out.println(u2.conVida());
+		
+	}
+
+}

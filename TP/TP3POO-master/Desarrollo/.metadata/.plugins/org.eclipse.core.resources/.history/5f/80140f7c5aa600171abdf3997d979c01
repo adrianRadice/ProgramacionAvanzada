@@ -1,0 +1,68 @@
+package item;
+
+import personaje.Unidad;
+
+/**
+ * @author adrian
+ * <h1>Clse Capa</h1>
+ * <h4>Clase que permite agregar las funcionalidades que implica el poseer una capa</h4>
+ * <h5>ENERGIA: x2</h5>
+ * <h5>ATAQUE: -40% </h5>
+ * <h6>Metodos:</h6>
+ *<ul>
+ *		<li>getAtaque()</li>
+ *		<li>getEnergia()</li>
+ *		<li>getDefensa()</li>
+ *		<li>puedeRestauraEnergia()</li>
+ *		<li>getAtaqueBase()</li>
+ *		<li>getDefensaBase()</li>
+ *		<li>getGastoEnergetico()</li>
+ *		<li>getEnergiaMaxima()</li>
+ *</ul>
+ *@see item.ItemDecorator
+ *@see personaje.Unidad
+ */
+public class Capa extends ItemDecorator {
+	
+	/**
+	 * CONSTRUCTOR REQUERIDO POR EL PATRON
+	 */
+	public Capa(Unidad peleable){
+		super(peleable);
+	}
+	
+	/**
+	 * Devuelve el danio producido por el ataque portando una capa
+	 * */
+	public double getAtaque(){
+		return getPeleable().getAtaque() - getPeleable().getAtaqueBase() * 0.1  ;
+	}
+	/**
+	 * Devuelve la energia que se tiene portando una capa
+	 * */
+	public int getEnergia(){
+		return getPeleable().getEnergia() * 2;
+	}
+	/**
+	 * Devuelve la defensa sin alterarla. La capa no afecta la defensa
+	 * */
+	public double getDefensa(){
+		return getPeleable().getDefensa();
+	}
+
+	/**
+	 * Devuelve el gasto que implica  atacar sin portar items
+	 * */
+	@Override
+	public double getGastoEnergetico() {
+		return getPeleable().getGastoEnergetico()/2;
+	}
+
+	/**
+	 * Devuelve la energia maxima que se puede adquirir
+	 * */
+	public int getEnergiaMaxima() {
+		// TODO Auto-generated method stub
+		return getPeleable().getEnergiaMaxima()*2;
+	}
+}

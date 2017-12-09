@@ -1,0 +1,21 @@
+package grafo;
+
+public class NodoImplementado  extends NodoGenerico{
+
+	private String nombre;
+	
+	public NodoImplementado(int index) {
+		super(index);
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+}

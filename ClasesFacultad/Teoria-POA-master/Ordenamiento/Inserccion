@@ -1,0 +1,60 @@
+Inserccion:
+Recorro los elementos de izq a derecha dividiendo los elementos en una parte ordenada y otra desordenada.
+Entonce lo que hago es tomar de la parte desordenada el primero y compararlo con la parte ordenada para saber en que posicion
+ubicarlo.
+
+La comparacion es con menor o mayor estricto. 
+
+Mejora: que no afecta la complejidad.
+Usar un centinela para evitar preguntar por el rango inferior.
+Se coloca el menor de todos los elementos posible al principio.
+Para mantener la estabilidad de insersion se pued usar burbujeo.
+
+Operaciones Basicas:
+	Desplazamiento.
+	Comparacion.
+
+Cantidad de operaciones basicas en el peor caso:
+	Desplazamiento: n*(n-1)/2.
+	Comparacion: n*(n-1)/2.
+
+Cantidad de operaciones basicas en el mejor caso:
+	Desplazamiento: 0
+	Comparacion: n-1
+
+
+Ejemplo Descendente
+t0: 5 8 3 5' 2 1 7 6 => t = 0
+t1: 8 5
+t2: 8 5 3
+t3: 8 5 5' 3
+t4: 8 5 5' 3 2
+t5: 8 5 5' 3 2 1
+t6: 8 7 5 5' 3 2 1
+t7: 8 7 6 5 5' 3 2 1
+
+Ejemplo Ascendente:
+t0: 5 8 3 5' 2 1 7 6
+t1: 5 8			
+t3: 3 5 8
+t3: 3 5 5' 8
+t4: 2 3 5 5' 8
+t5: 1 2 3 5 5' 8
+t6: 1 2 3 5 5' 7 8
+t7: 1 2 3 5 5' 6 7 8
+
+
+Caracteristicas:
+	Sensibilidad: SI
+	Estabilidad:  SI
+
+Big O Puro: n^2
+ Toma la cantidad de operaciones, quito las constantes y los terminos de orden menor y obtengo n^2
+ n*(n-1)/2 => (n^2 - n)/2 => n^2
+
+Consideracion: 
+Un desplazamiento implica 1 operacion basica.
+Un intercambio implica 3 operaciones basicas.
+Entonces desplazar es mejor que intercambiar.
+
+Si tendriamos que elegir entre inserccion y seleccion considerar que si tenemos claves pequenias y grandes objetos asociados, convendria seleccion que implica menor cantidad de movimientos en memoria.

@@ -1,0 +1,37 @@
+package personaje;
+
+import item.Capa;
+import item.Escudo;
+import item.Puñal;
+
+public class Juego {
+
+	public static void main(String[] args) {
+		Unidad unidad = new Soldado(0);
+		Unidad victima = new Soldado(0);
+		
+		System.out.print("ENERGIA SIN CAPA= ");
+		System.out.println(unidad.getEnergia());
+		unidad = new Capa(unidad);
+		System.out.print("ENERGIA CON CAPA= ");
+		System.out.println(unidad.getEnergia());
+		
+		victima = new Escudo(victima);
+		victima = new Puñal(victima);
+		unidad.atacar(victima);
+		victima.atacar(unidad);
+
+		unidad.atacar(victima);
+		unidad.atacar(victima);
+
+		System.out.print("ENERGIA CON CAPA= ");
+		System.out.println(unidad.getEnergia());
+		System.out.print("SALUD ATACANTE= ");
+		System.out.println(unidad.getSalud());
+		System.out.print("SALUD VICTIMA= ");
+		System.out.println(victima.getSalud());
+
+		System.out.println(unidad);
+	}
+
+}

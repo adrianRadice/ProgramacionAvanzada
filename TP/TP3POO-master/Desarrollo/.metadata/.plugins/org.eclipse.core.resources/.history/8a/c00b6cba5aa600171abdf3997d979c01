@@ -1,0 +1,20 @@
+package item;
+
+import personaje.Unidad;
+/**
+ * @author adrian
+ *
+ */
+public class Puñal extends ItemDecorator {
+	
+	public Puñal(Unidad peleable){
+		super(peleable);
+	}
+	public double getAtaque(){
+		return getPeleable().getAtaque()+3;
+	}
+	public double getDefensa(){
+		return getPeleable().getDefensa()-3;
+	}
+	
+}

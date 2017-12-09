@@ -1,0 +1,174 @@
+package item;
+
+import personaje.Unidad;
+/**
+ * @author adrian
+ * <h1>Clase ItemDecorator</h1>
+ * <h4>Clase que requiere el patron decorador</h4>
+ * <h6>Metodos:</h6>
+ *<ul>
+ *		<li>getUnidad()</li>
+ *		<li>getUnidad()</li>
+ *		<li>mismoPersonaje(Unidad evaluado)</li>
+ *		<li>getNumero()</li>
+ *		<li>getSalud()</li>
+ *		<li>getPosicion()</li>
+ *		<li>setSalud(double d)</li>
+ *		<li>setEnergia(int d)</li>
+ *		<li>puedeRestauraEnergia()</li>
+ *		<li>getAtaqueBase()</li>
+ *		<li>getDefensaBase()</li>
+ *		<li>getGastoEnergetico()</li>
+ *		<li>getEnergiaMaxima()</li>
+ *		<li>getAtaque()</li>
+ *		<li>getEnergia()</li>
+ *		<li>getDefensa(double valor)</li>
+ *		<li>consumirEnergia()</li>
+ *		<li>restaurarEnergia()</li>
+ *		<li>avanzar()</li>
+ *		<li>retroceder()</li>
+ *</ul>
+ *@see personaje.Unidad
+ */
+public abstract class ItemDecorator extends Unidad {
+	private Unidad unidad; //contenedor
+
+	/**
+	 * constructor requerido por el patron
+	 * @param unidad= objeto al que sele agrega la funcionalidad
+	 */
+	public ItemDecorator(Unidad unidad) {
+		this.unidad = unidad;
+	}
+
+	/**Accede al objeto que fue decorado
+	 * @return unidad que fue decorada
+	 */
+	public Unidad getUnidad() {
+		return this.unidad;
+	}
+	
+	/**Accede a la unidad que fue decorada para saber si sigue con vida (salud > 0)
+	 * @return true si esta con vida false de lo contrario
+	 */
+	public boolean conVida(){
+		return this.unidad.conVida();
+	}
+
+	/**Accede a la unidad decorada para saber si se trata de la misma que fue pasada por parametro. Util para no combatir contra uno mismo.
+	 * @return true si esta con vida false de lo contrario
+	 */
+	public boolean mismoPersonaje(Unidad victima){
+		return this.unidad.mismoPersonaje(victima);
+	}
+
+	/**Accede a la unidad decorada para obtener su identificador
+	 * @return numero que identifica a la unidad
+	 */
+	public int getNumero() {
+		return this.unidad.getNumero();
+	}
+
+	/**Accede a la unidad decorada para obtener su salud
+	 * @return salud actual
+	 */
+	public double getSalud(){
+		return this.unidad.getSalud();
+	}
+	
+	/**Accede a la unidad decorada para obtener su posicion actual
+	 * @return salud actual
+	 */
+	public int getPosicion(){
+		return this.unidad.getPosicion();
+	}
+	
+
+	/**Accede a la unidad decorada para modificar su salud
+	 * @param salud
+	 */
+	public void setSalud(double salud) {
+		this.unidad.setSalud(salud);		
+	}
+	/**Accede a la unidad decorada para modificar su energia
+	 * @param d
+	 */
+	public void setEnergia(double d) {
+		this.unidad.setEnergia(d);		
+	}
+
+	/**Accede a la unidad decorada y Evalua si es posible restaurar la energia 
+	 * @return true si es posible false de lo contrario
+	 */
+	public boolean puedeRestauraEnergia() {
+		return  this.unidad.puedeRestauraEnergia();
+	}
+	
+	/**Accede a la unidad decorada y devuelve cuanto vale el ataque sin considerar los items que porta
+	 */
+	public double getAtaqueBase() {
+		return  this.unidad.getAtaqueBase();
+	}
+
+	/**Accede a la unidad decorada y devuelve la defensa v sin considerar los items que porta
+	 */
+	public double getDefensaBase() {
+		return  this.unidad.getDefensaBase();
+	}
+
+	/**Accede a la unidad decorada y devuelve cuanta energia se gasta al efectuar un ataque
+	 */
+	public double getGastoEnergetico() {
+		return  this.unidad.getGastoEnergetico();
+	}
+
+	/**Accede a la unidad decorada y devuelve energia maxima que puede portar 
+	 */
+	public int getEnergiaMaxima() {
+		return  this.unidad.getEnergiaMaxima();
+	}
+	
+	//no se si pueden ser abstract
+	/**Accede a la unidad decorada y devuelve el danio producido considerando los items que porta
+	 */
+	public double getAtaque(){
+		return this.unidad.getAtaque();
+	}
+
+	/**Accede a la unidad decorada y devuelve la energia actual de la unidad considerando los items que porta
+	 */
+	public int getEnergia() {
+
+		return this.unidad.getEnergia();
+	}
+	
+	/**Accede a la unidad decorada y devuelve la defensa actual de la unidad considerando los items que porta
+	 */
+	public double getDefensa(double valor) {
+		return this.unidad.getDefensa(valor);
+	}
+	
+	/**Accede a la unidad decorada para consumir su energia tras un ataque por ejemplo.
+	 */
+	public void consumirEnergia(){
+		this.unidad.consumirEnergia();
+	}
+
+	/**Accede a la unidad decorada para restaurar su energia
+	 */
+	public void restaurarEnergia(){
+		this.unidad.restaurarEnergia();
+	}
+
+	/**Accede a la unidad decorada para avanzar en su posicion
+	 */
+	public void avanzar(){
+		this.unidad.avanzar();
+	}
+
+	/**Accede a la unidad decorada para retroceder en su posicion
+	 */
+	public void retroceder(){
+		this.unidad.retroceder();
+	}
+}

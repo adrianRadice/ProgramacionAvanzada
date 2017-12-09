@@ -1,0 +1,10 @@
+package grafo;
+
+public class Nodo {
+
+	public int getNumero() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,14 @@
+package grafo.generadores;
+
+import grafo.Grafo;
+
+public class GeneradorAleatorioConPorcentaje {
+	public static Grafo generar(int cantidadDeNodos, double porcentajeAdy)
+	{
+		Grafo grafo = new Grafo(cantidadDeNodos);
+		
+		Arista[] aristas = new Arista[grafo.getMaximaCantidadDeAristasPosibles()];
+		
+		return grafo;
+	}
+}

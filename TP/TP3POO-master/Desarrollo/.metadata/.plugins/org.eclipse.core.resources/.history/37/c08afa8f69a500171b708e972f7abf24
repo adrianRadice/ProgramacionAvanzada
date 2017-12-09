@@ -1,0 +1,17 @@
+package item;
+
+public class Puñal extends UnidadDecorator {
+	
+	public Puñal(Peleable peleable){
+		super(peleable);
+	}
+	public int getAtaque(){
+		return getPeleable().getAtaque()+3;
+	}
+	public int getEnergia(){
+		return getPeleable().getEnergia();
+	}
+	public int getDefensa(){
+		return getPeleable().getDefensa()-3;
+	}
+}

@@ -1,0 +1,31 @@
+package test;
+
+import java.io.IOException;
+
+import grafo.Grafo;
+import grafo.generadores.GeneradorAleatorioConPorcentaje;
+import grafo.generadores.GeneradorAleatorioProbabilistico;
+import grafo.generadores.GeneradorGrafoNPartitos;
+import grafo.generadores.GeneradorRegularConGrado;
+
+public class main {
+
+	public static void main(String[] args) throws IOException {
+		System.out.println(GeneradorAleatorioProbabilistico.generar(5,60));
+		System.out.println(GeneradorAleatorioConPorcentaje.generar(5,90));
+		System.out.println(GeneradorRegularConGrado.generar(4,2));
+		System.out.println(GeneradorRegularConGrado.generar(5,3));
+
+		System.out.println(GeneradorGrafoNPartitos.generar(5,2));
+		
+		Grafo g = new Grafo(5);
+		g.addArista(0, 1, true);
+		g.addArista(1, 3, true);
+		g.addArista(0, 2, true);
+		g.addArista(2, 3, true);
+		g.addArista(3, 4, true);
+		g.escribirComoEntrada("test.in");
+		
+	}
+
+}

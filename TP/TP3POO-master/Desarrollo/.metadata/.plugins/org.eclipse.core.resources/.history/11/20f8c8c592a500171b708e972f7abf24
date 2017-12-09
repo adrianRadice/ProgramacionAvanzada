@@ -1,0 +1,25 @@
+package item;
+
+import personaje.Unidad;
+
+public class Escudo extends EquipoDecorator {
+	
+	public Escudo(Unidad peleable){
+		super(peleable);
+	}
+	public double getAtaque(){
+		return getPeleable().getAtaque();
+	}
+	public int getEnergia(){
+		return getPeleable().getEnergia();
+	}
+	public double getDefensa(){
+		return getPeleable().getDefensa() +  getPeleable().getDefensa()*0.4;
+	}
+	@Override
+	public boolean puedeRestauraEnergia() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

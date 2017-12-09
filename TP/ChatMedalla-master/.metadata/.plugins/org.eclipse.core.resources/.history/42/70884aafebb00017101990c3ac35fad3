@@ -1,0 +1,39 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ClienteEnviar  extends Thread{
+	private BufferedReader br ;
+
+	private DataOutputStream output;
+	
+	public ClienteEnviar(String nombre, DataOutputStream output){
+		super(nombre);
+		 br = new BufferedReader( new InputStreamReader(System.in));
+		this.output = output;
+	}
+	
+	public void run(){
+		while(true){
+			try {
+				String mensaje = leerConsola();
+				output.writeUTF(mensaje);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+	}
+	
+
+	
+	public String leerConsola() throws IOException{
+		System.out.print(">:");
+		return  br.readLine();
+	}
+
+	
+}

@@ -1,0 +1,18 @@
+Caracteristicas a tener encuenta al comparar.
+
+-Un algoritmo es sensible a la entrada 
+	si el tiempo de ejecucion depende de la entrada.
+-Un algoritmo es estable 
+	si mantiene el orden previo para claves iguales.
+
+* Se considera el comportamiento del algoritmo ante el peor caso.
+
+* A menor cantidad de operaciones elementales mejor es el algoritmo.
+
+
+Al momento de elegir un algoritmo se tiene que evaluar:
+ *Cuantas veces se va usar el algoritmo.
+ *Cuanto tiempo de desarrollo nos implica, y si lo conoconemos.
+ *Big O
+ *Si se requiere estabilidad.
+ *Si se requiere sensibilidad. (Ejemplo burbujeo mejorado es sensible y seleccion no entonces si requerimos velocidad, y mayormente los elemento bienen ordenados podria elegir burbujeo)

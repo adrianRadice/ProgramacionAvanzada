@@ -1,0 +1,22 @@
+package Servidor;
+
+import java.net.Socket;
+import java.util.Hashtable;
+
+public class Servidor {
+	Hashtable<String,Socket> clientes;
+	
+	public Hashtable<String, Socket> getClientes() {
+		return clientes;
+	}
+
+	public Servidor(){
+		
+	}
+
+	public void salir(ServidorHilo servidorHilo) {
+		clientes.remove(servidorHilo.getName());
+		
+	}
+	
+}

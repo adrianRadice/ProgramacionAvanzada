@@ -1,0 +1,9 @@
+package grafo;
+
+public class grafoNoDirigido {
+
+	public MatrizSimetrica aristas;
+	
+	public
+	
+}

@@ -1,0 +1,29 @@
+package item;
+
+import personaje.Unidad;
+
+public class Personaje extends Unidad implements Peleable{	
+
+	private Unidad unidad;
+	
+	public Personaje(Unidad u){
+		unidad = u;
+	}
+	
+	
+	@Override
+	public double getAtaque() {
+		return ataque;
+	}
+
+	@Override
+	public int getEnergia() {
+		return unidad.getEnergia();
+	}
+
+	@Override
+	public double getDefensa() {
+		return defensa;
+	}
+	
+}

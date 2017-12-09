@@ -1,0 +1,31 @@
+package grafo.generadores;
+
+import grafo.Grafo;
+
+public class GeneradorRegularConGrado {
+	public static Grafo generar(int grado, int cantidadDeNodos){
+		Grafo grafo = new Grafo(cantidadDeNodos);
+		
+		if(cantidadDeNodos % 2 == 0 && grado % 2 == 1)
+		{
+			int saltoNodo = 1;
+			for (int i = 0; i < grado / 2; i++) {
+				for (int j=0; j < cantidadDeNodos; j++) {
+						int destino =(j + saltoNodo) % cantidadDeNodos;
+						if(j != destino)
+							grafo.addArista( j,destino, true);
+				}
+				saltoNodo++;
+			}
+		}
+		else
+		{
+			int saltoImpar = (cantidadDeNodos / 2);
+			for (int i = 0; i < saltoImpar; i++)
+				for(int j=i+1; j < saltoImpar; j++)
+					grafo.addArista(i, j, true);
+		}
+		
+		return grafo;
+	}
+}

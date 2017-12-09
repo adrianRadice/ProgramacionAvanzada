@@ -1,0 +1,31 @@
+package personaje;
+
+public class Lancero  extends Unidad{
+
+	public Lancero(){
+		super(150);
+	}
+	
+	@Override
+	public int getAtaque() {
+		return 25;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 1;
+	}
+
+	@Override
+	public int getDefensa() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getPosicion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

@@ -1,0 +1,31 @@
+package grafo;
+
+public class MatrizSimetrica {
+	private boolean[] vec;
+	
+	public MatrizSimetrica(final int cantNodos){
+		this.vec = new boolean[ordenMatriz(cantNodos)];
+	}
+
+	private static int ordenMatriz(final int cantNodos) {
+		return cantNodos*(cantNodos)/2;
+	}
+	
+	public boolean getValor(int fila, int columna){
+		if(fila == columna)
+			throw new ExceptionMatrizSimetrica("No se admite ciclos");
+		
+		if(fila > columna){
+			int aux = fila;
+			fila = columna;
+			columna = aux;
+		}
+		
+		return this.vec[(int)(fila*getOrdenMatriz()+columna-(fila*fila+3*fila+fila)/2)];
+	}
+
+	
+	private int getOrdenMatriz() {
+		return (int)(1+Math.sqrt((1+8*vec.length-1)/2));
+	}
+}

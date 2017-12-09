@@ -1,0 +1,19 @@
+package unidad;
+
+import item.Unidad;
+
+public class UnidadSoldados extends Unidad{
+
+	@Override
+	public int getAtaque() {
+		// TODO Auto-generated method stub
+		return 10;
+	}
+
+	@Override
+	public int getEnergia() {
+		// TODO Auto-generated method stub
+		return 100;
+	}
+
+}

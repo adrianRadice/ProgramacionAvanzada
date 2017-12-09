@@ -1,0 +1,17 @@
+package grafo;
+
+public class GrafoNoDirigido {
+
+	public MatrizSimetrica aristas;
+	public Nodo[] nodos;
+	
+	public GrafoNoDirigido(int cantidadDeNodos){
+		aristas= new MatrizSimetrica(cantidadDeNodos,Integer.MAX_VALUE);
+		nodos = new Nodo[cantidadDeNodos];
+	}
+	
+	public void addArista(Arista a){
+		aristas.setValue(a.getNodoIzq().getIndex(), a.getNodoDer().getIndex(), a.getCosto());
+	}
+	
+}

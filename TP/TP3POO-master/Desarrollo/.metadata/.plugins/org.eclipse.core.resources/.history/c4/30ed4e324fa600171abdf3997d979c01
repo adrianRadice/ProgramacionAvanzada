@@ -1,0 +1,100 @@
+package item;
+
+import personaje.Unidad;
+/**
+ * @author adrian
+ *
+ */
+public abstract class ItemDecorator extends Unidad {
+	private Unidad peleable;
+
+	public ItemDecorator(Unidad peleable) {
+		this.peleable = peleable;
+	}
+
+	public Unidad getPeleable() {
+		return this.peleable;
+	}
+	@Override
+	public boolean conVida(){
+		return this.peleable.conVida();
+	}
+	@Override
+	public boolean mismoPersonaje(Unidad victima){
+		return this.peleable.mismoPersonaje(victima);
+	}
+
+	@Override
+	public int getNumero() {
+		return this.peleable.getNumero();
+	}
+
+	public void consumirEnergia(){
+		this.peleable.consumirEnergia();
+	}
+	
+
+	public double getSalud(){
+		return this.peleable.getSalud();
+	}
+
+	public int getPosicion(){
+		return this.peleable.getPosicion();
+	}
+	
+
+
+	public void setSalud(double d) {
+		this.peleable.setSalud(d);		
+	}
+	
+	
+	/**
+	 * Devuelve la posibilidad de restaurar la energia. La capa no afecta esta caracteristica
+	 * */
+	public boolean puedeRestauraEnergia() {
+		return getPeleable().puedeRestauraEnergia();
+	}
+
+	/**
+	 * Devuelve el valor del ataque sin portar items
+	 * */
+	public double getAtaqueBase() {
+		return getPeleable().getAtaqueBase();
+	}
+
+	/**
+	 * Devuelve el valor de la defensa sin portar items
+	 * */
+	public double getDefensaBase() {
+		// TODO Auto-generated method stub
+		return getPeleable().getDefensaBase();
+	}
+
+	/**
+	 * Devuelve el gasto que implica  atacar sin portar items
+	 * */
+	@Override
+	public double getGastoEnergetico() {
+		return getPeleable().getGastoEnergetico()/2;
+	}
+
+	/**
+	 * Devuelve la energia maxima que se puede adquirir
+	 * */
+	public int getEnergiaMaxima() {
+		// TODO Auto-generated method stub
+		return getPeleable().getEnergiaMaxima()*2;
+	}
+	
+	
+	
+	
+	//no se si pueden ser abstract
+	public abstract double getAtaque();
+	public abstract int getEnergia() ;
+	public abstract double getDefensa() ;
+
+	
+
+}

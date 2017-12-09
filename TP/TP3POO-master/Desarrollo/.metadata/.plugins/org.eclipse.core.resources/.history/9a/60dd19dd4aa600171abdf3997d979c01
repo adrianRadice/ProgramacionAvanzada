@@ -1,0 +1,44 @@
+package item;
+
+import personaje.Unidad;
+/**
+ * @author adrian
+ *
+ */
+public abstract class ItemDecorator extends Unidad {
+	private Unidad peleable;
+
+	public ItemDecorator(Unidad peleable) {
+		this.peleable = peleable;
+	}
+
+	public Unidad getPeleable() {
+		return this.peleable;
+	}
+	@Override
+	public boolean conVida(){
+		return this.peleable.conVida();
+	}
+	@Override
+	public boolean mismoPersonaje(Unidad victima){
+		return this.peleable.mismoPersonaje(victima);
+	}
+
+	@Override
+	public int getNumero() {
+		return this.peleable.getNumero();
+	}
+
+	public void consumirEnergia(){
+		this.peleable.consumirEnergia();
+	}
+	
+		
+	//no se si pueden ser abstract
+	public abstract double getAtaque();
+	public abstract int getEnergia() ;
+	public abstract double getDefensa() ;
+
+	
+
+}

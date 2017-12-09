@@ -1,0 +1,49 @@
+package grafo;
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+import grafo.Arista;
+import grafo.Grafo;
+import grafo.NodoGenerico;
+
+
+public class Prim {
+	public static ArrayList<Arista> obtenerConRecorrido(Grafo grafo) throws Exception{
+		
+		int[] distancia = new int[grafo.getCantidadDeNodos()];
+		ArrayList<Arista> padre = new ArrayList<Arista>();
+		PriorityQueue<NodoGenerico> cola = new PriorityQueue<>();
+		
+		for(NodoGenerico n : grafo.getNodos()) {
+			distancia[n.getIndex()] = grafo.getValorInfinito();
+			padre.add(null);
+			cola.add(n);
+		}
+
+		distancia[0] = 0;
+		while(!cola.isEmpty()){
+			NodoGenerico nodoActual = cola.poll();
+			for(int ady = 0; ady < grafo.getCantidadDeNodos(); ady++){
+				if(nodoActual.getIndex() != ady) {
+					Arista a = grafo.getArista(nodoActual, new NodoGenerico(ady,0));
+					if(a != null){
+						if(cola.contains(new NodoGenerico(ady,distancia[ady]))) {
+							int dist = a.getCosto();
+							if(dist < distancia[ady]) {
+								distancia[ady] = dist;
+								NodoGenerico nodoInsertar = new NodoGenerico(ady,distancia[ady]);
+								if(cola.contains(nodoInsertar))
+									cola.remove(nodoInsertar);
+								cola.add(nodoInsertar);
+								padre.set(ady,new Arista(new NodoGenerico(ady),new NodoGenerico(nodoActual.getIndex()),distancia[ady]));
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return padre;
+	}
+}

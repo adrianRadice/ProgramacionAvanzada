@@ -1,0 +1,76 @@
+Seleccion:
+Recorro los elementos desde el ultimo hasta el primero y intercambio cuando se cumple la condicion de comparacion.
+	Desendente >
+	Ascendente <
+
+Mejoras: 
+	flag de corte para cuando en una pasada no hubo intercambios.
+	no recorro de punta a punta.
+
+Operaciones Basicas:
+	Intercambio.
+	Comparacion.
+
+Cantidad de operaciones basicas en el peor caso:
+	Intercambio: n*(n-1)/2.
+	Comparacion: n*(n-1)/2.
+
+
+Cantidad de operaciones basicas en el mejor caso:
+	Intercambio: 0
+	Comparacion: n-1
+
+Ejemplo Descendente
+5 8 3 5' 2 1 7 6 => t = 1
+8 5 7 3 5' 2 1 6 => t = 2
+8 7 5 6 3 5' 2 1 => t = 3
+8 7 6 5 5' 3 2 1 => t = 4
+
+
+Ejemplo Ascendente:
+5 8 3 5' 2 1 7 6 => t = 0
+			 6 7
+		   1 6
+		 1 2
+      1  5'
+    1 3
+  1 8
+1 5
+1 | 5 8 3  5' 2 6 7 => t = 1 //NOTAR QUE VA QUEDANDO SIEMPRE EL MENOR MAS A LA IZQ
+			  6 7
+			2 6
+		 2  5'
+	  2  3
+    2 8
+  2 5
+1 2 | 5 8 3 5' 6 7 => t = 3
+			   6 7
+			5' 6
+		  3 5'
+		3 8
+	  3 5
+1 2 3 | 5 8 5' 6 7 => t = 4
+			   6 7 
+		  5'8
+		5 5'
+1 2 3 5 | 5' 8 6 7 => t = 5
+			   6 7
+			 6 8
+		  5' 6
+1 2 3 5 5'| 6 8 7 => t = 6
+			  7 8
+			6 7
+1 2 3 5 5' 6 | 7 8 => t = 7
+			   7 8
+1 2 3 5 5' 6 7 | 8 => t = 8
+
+
+
+Caracteristicas:
+	Sensibilidad: Con mejoras Si.
+	Estabilidad:  Si.
+
+Big O: n^2
+ Toma la cantidad de operaciones, quito las constantes y los terminos de orden menor y obtengo n^2
+ n*(n-1)/2 => (n^2 - n)/2 => n^2
+

@@ -1,0 +1,54 @@
+package Cliente;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+import Herramientas.Valida;
+
+public class Cliente{
+
+	private Socket socket;
+	public Cliente(String ipServer, int puerto){
+		try
+		{
+			socket = new Socket(ipServer,puerto);			
+			
+			CRecibe oreja = new CRecibe("recibir",new DataInputStream(socket.getInputStream()));
+			CSend boca	 = new CSend("enviar",new DataOutputStream(socket.getOutputStream()));
+			
+			oreja.start();
+			boca.start();
+			boca.wait();
+		}
+		catch(Exception e){
+			
+		}
+	}
+	
+	public static void main(String args[]) throws IOException {
+
+		String puerto;
+		String ip;
+		BufferedReader buffer = new BufferedReader( new InputStreamReader(System.in) );
+		
+		do 
+		{
+			System.out.print("IP Servidor >:");
+			ip = buffer.readLine();
+		}
+		while(!Valida.validateIP(ip));
+		
+		do 
+		{
+			System.out.print("Puerto >:");
+			puerto = buffer.readLine();
+			
+		}
+		while(!Valida.validaPuerto(puerto));
+
+		new Cliente(ip, Integer.parseInt(puerto));
+		
+	}
+}

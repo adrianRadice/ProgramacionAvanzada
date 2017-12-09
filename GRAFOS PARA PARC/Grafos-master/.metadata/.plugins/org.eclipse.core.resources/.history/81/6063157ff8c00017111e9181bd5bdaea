@@ -1,0 +1,38 @@
+package grafo;
+
+import java.util.Arrays;
+
+public class GrafoDirigido {
+	private int[][] matriz;
+	private int valorInfinito;
+	
+	public GrafoDirigido(final int cantidadDeNodos,final int valorInfinito) {
+		matriz = new int[cantidadDeNodos][cantidadDeNodos];
+	}
+	
+	public void setConexion(Arista arista) throws Exception {
+		matriz[arista.getNodoInicial().getNumero()][arista.getNodoFinal().getNumero()]=arista.getPeso();
+	}
+	
+	public Arista getArista(Nodo nodoInicial, Nodo nodoFinal) throws Exception {
+		int distancia = matriz[nodoInicial.getNumero()][nodoFinal.getNumero()];
+		if(distancia == valorInfinito)
+			return null;
+		else
+			return new Arista(nodoInicial,nodoFinal,distancia);
+	}
+	
+	public int getCantidadDeNodos() {
+		return matriz[0].length;
+	}
+
+	@Override
+	public String toString() {
+		return "GrafoDirigido [matriz=" + Arrays.toString(matriz) + ", valorInfinito=" + valorInfinito + "]";
+	}
+
+	public int getValorInfinito()
+	{
+		return this.valorInfinito;
+	}
+}

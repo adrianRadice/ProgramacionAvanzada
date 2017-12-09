@@ -1,0 +1,26 @@
+package grafo;
+
+public class Arista {
+
+	private Nodo nodoInicial;
+	private Nodo nodoFinal;
+	
+	public Arista(Nodo nodoInicial2, Nodo nodoFinal2, int distancia) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Nodo getNodoInicial() {
+		// TODO Auto-generated method stub
+		return this.nodoInicial;
+	}
+
+	public Nodo getNodoFinal() {
+		// TODO Auto-generated method stub
+		return this.nodoFinal;
+	}
+
+	public int getPeso() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

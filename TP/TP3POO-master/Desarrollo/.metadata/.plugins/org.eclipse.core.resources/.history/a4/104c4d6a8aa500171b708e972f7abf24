@@ -1,0 +1,12 @@
+package item;
+
+public interface Peleable {
+	public double getAtaque();
+	public int getEnergia();
+	public double getDefensa();
+	public boolean puedeAtacar(Peleable f);
+	public int getPosicion();
+	public boolean conVida();
+	public void atacar(Peleable u2);
+	
+}

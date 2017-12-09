@@ -1,0 +1,48 @@
+package algoritmos;
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+import grafo.Arista;
+import grafo.GrafoNoDirigido;
+import grafo.Nodo;
+
+public class Dijkstra {
+
+public static ArrayList<Arista> obtenerConRecorrido(GrafoNoDirigido grafo, Nodo nodoInicial) throws Exception{
+		
+		
+		Arista[] distancia = new Arista[grafo.nodos.length];
+		ArrayList<Boolean> visitado = new ArrayList<Boolean>();
+		PriorityQueue<Arista> cola = new PriorityQueue<>();
+		
+		for(Nodo nodo : grafo.nodos){
+			distancia[nodo.getIndex()] = new Arista(nodoInicial,nodo,Integer.MAX_VALUE);
+			visitado.add(false);
+		}
+		
+		distancia[nodoInicial.getIndex()].setCosto(0);
+		cola.add(distancia[nodoInicial.getIndex()]);
+		
+		while(!cola.isEmpty()){
+			Arista nodoActual = cola.poll();
+			visitado.set(nodoActual.getNodoDer().getIndex(), true);
+			for(int ady = 0; ady < grafo.getCantidadDeNodos(); ady++){
+				if(nodoActual.getNodoDer().getIndex() != ady) {
+					Arista a = grafo.getArista(nodoActual, new Nodo(ady));
+					if(a != null){
+						int dist = a.getPeso()+nodoActual.getPeso();
+						if(!visitado.get(ady) && dist <distancia.get(ady).getPeso()) {
+							distancia.set(ady,new NodoConCosto(ady,dist));
+							NodoConCosto nodoInsertar = new NodoConCosto(ady,distancia.get(ady).getPeso());
+							if(cola.contains(nodoInsertar))
+								cola.remove(nodoInsertar);
+							cola.add(nodoInsertar);
+						}
+					}
+				}
+			}
+		}
+ 		return distancia;
+	}
+}

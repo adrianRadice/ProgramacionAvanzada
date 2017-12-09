@@ -1,0 +1,33 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ClienteRecibir extends Thread{
+
+	private BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+	private DataInputStream input;
+	
+	public ClienteRecibir(String nombre, DataInputStream input){
+		super(nombre);
+		this.input = input;
+	}
+	
+	public void run(){		
+		
+		while(true){
+			try {
+			  System.out.println(	input.readUTF() );
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,21 @@
+package algoritmos;
+
+import java.util.ArrayList;
+
+import grafo.Grafo;
+import grafo.GrafoDirigido;
+import grafo.GrafoNoDirigido;
+import grafo.Nodo;
+
+public class Dijkstra {
+	public static ArrayList<Integer> obtenerConRecorrido(GrafoNoDirigido grafo, Nodo nodoInicial){
+		ArrayList<Integer> distancia = new ArrayList<Integer>();
+		ArrayList<Boolean> visitado = new ArrayList<Boolean>();
+		
+		for(int j = 0; j < grafo.getCantidadDeNodos(); j++) {
+			distancia.add(grafo.val)
+		}
+		
+ 		return distancia;
+	}
+}

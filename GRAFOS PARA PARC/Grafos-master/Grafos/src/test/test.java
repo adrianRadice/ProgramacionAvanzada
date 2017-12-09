@@ -1,0 +1,66 @@
+package test;
+
+import algoritmos.Dijkstra;
+import grafo.Arista;
+import grafo.GrafoDirigido;
+import grafo.GrafoNoDirigido;
+import grafo.IGrafo;
+import grafo.Nodo;
+import grafo.NodoNombrado;
+
+public class test {
+	public static void main(String args[]) throws Exception {
+		GrafoNoDirigido g = new GrafoNoDirigido(5,Integer.MAX_VALUE);
+		
+		Nodo a = new NodoNombrado(0,"a");
+		Nodo b = new NodoNombrado(1,"b");
+		Nodo c = new NodoNombrado(2,"c");
+		Nodo d = new NodoNombrado(3,"d");
+		Nodo e = new NodoNombrado(4,"e");
+		
+		g.setConexion(new Arista(a,b,1));
+		g.setConexion(new Arista(a,c,1));
+		g.setConexion(new Arista(b,d,1));
+		g.setConexion(new Arista(c,d,1));
+		g.setConexion(new Arista(d,e,1));
+
+		//System.out.println(g);
+		
+		System.out.println(Dijkstra.obtenerConRecorrido(g, e));
+		
+		GrafoDirigido g2 = new GrafoDirigido(5, Integer.MAX_VALUE);
+
+		g2.setConexion(new Arista(a,b,1));
+		g2.setConexion(new Arista(a,c,10));
+		g2.setConexion(new Arista(b,d,1));
+		g2.setConexion(new Arista(c,d,1));
+		g2.setConexion(new Arista(d,e,1));
+
+		//g2.imprimir();
+		
+		System.out.println(Dijkstra.obtenerConRecorrido(g2, a));
+		
+		
+
+		IGrafo g3 = new GrafoDirigido(5, Integer.MAX_VALUE);
+		Nodo n0 = new NodoNombrado(0,"0");
+		Nodo n1 = new NodoNombrado(1,"1");
+		Nodo n2 = new NodoNombrado(2,"2");
+		Nodo n3 = new NodoNombrado(3,"3");
+		Nodo n4 = new NodoNombrado(4,"4");
+
+		g3.setConexion(new Arista(n0,n1,34));
+		g3.setConexion(new Arista(n0,n2,13));
+		g3.setConexion(new Arista(n0,n3,13));
+		g3.setConexion(new Arista(n0,n4,2));
+		g3.setConexion(new Arista(n1,n4,13));
+		g3.setConexion(new Arista(n2,n1,22));
+		g3.setConexion(new Arista(n2,n3,19));
+		g3.setConexion(new Arista(n3,n1,13));
+		g3.setConexion(new Arista(n3,n4,19));
+		g3.setConexion(new Arista(n4,n2,6));
+		
+		System.out.println(Dijkstra.obtenerConRecorrido(g3, n0));
+		
+	}
+}

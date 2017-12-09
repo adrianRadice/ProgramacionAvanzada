@@ -1,0 +1,5 @@
+package grafo.generadores;
+
+public class GeneradorAleatorioProbabilistico {
+
+}

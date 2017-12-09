@@ -1,0 +1,48 @@
+package Servidor;
+
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+public class Servidor {
+	Hashtable<String,Socket> clientes;
+	
+	public Hashtable<String, Socket> getClientes() {
+		return clientes;
+	}
+
+	public Servidor(int puerto) {
+		
+		int i = 0;
+		clientes = new Hashtable<String,Socket>();
+		
+		try {
+			ServerSocket servidor = new ServerSocket(puerto);
+			while(i < 100) {
+				Socket cliente = servidor.accept();
+				new ServidorHilo(cliente,this).run();
+				i++;
+			}
+			
+			for(Socket indice : clientes.values()) {
+				indice.close();
+			}
+			
+			servidor.close();
+						
+		} catch (Exception e) {
+		}
+	}
+
+	public static void main(String[] args) {
+		new Servidor(10000);
+	}
+
+	public void salir(ServidorHilo servidorHilo) {
+		clientes.remove(servidorHilo.getName());
+		
+	}
+	
+}

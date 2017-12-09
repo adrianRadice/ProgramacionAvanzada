@@ -1,0 +1,19 @@
+package grafo;
+
+public class Nodo {
+	private int index;
+	
+	public Nodo(int index){
+		this.index = index;
+	}
+	
+	public void setIndex(int value)
+	{
+		this.index = value;
+	}
+	
+	public int getIndex(){
+		return this.index;
+	}
+	
+}

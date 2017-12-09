@@ -1,0 +1,40 @@
+package personaje;
+
+import item.Escudo;
+import item.Peleable;
+import item.Puñal;
+
+public class Soldado extends Unidad{
+
+	public Soldado(int posicion){
+		super(200,posicion, 10);
+	}
+	
+	@Override
+	public double getAtaque() {
+		return 10;
+	}
+
+	
+	public static void main(String[] args){
+		Peleable u = new Soldado(2);
+		u = new Puñal(u);
+		System.out.println(u.getAtaque());
+		System.out.println(u.getDefensa());
+		System.out.println(u.getEnergia());
+	}
+
+	@Override
+	public boolean puedeRestauraEnergia() {
+		return true;
+	}
+
+	@Override
+	public void restaurarEnergia() {
+		super.setEnergia(100);
+
+	}
+
+	
+	
+}

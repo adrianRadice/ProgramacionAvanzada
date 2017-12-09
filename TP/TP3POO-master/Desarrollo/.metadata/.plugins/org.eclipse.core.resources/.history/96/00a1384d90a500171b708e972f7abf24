@@ -1,0 +1,8 @@
+package item;
+
+public interface Peleable {
+	public double getAtaque();
+	public int getEnergia();
+	public double getDefensa();
+	
+}

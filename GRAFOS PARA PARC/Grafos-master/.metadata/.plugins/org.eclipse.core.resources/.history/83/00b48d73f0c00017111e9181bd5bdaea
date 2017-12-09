@@ -1,0 +1,11 @@
+package grafo;
+
+public class NodoConCosto extends Nodo {
+
+	private int costo;
+	public NodoConCosto(int numero, int costo) {
+		super(numero);
+		this.costo = costo;
+		// TODO Auto-generated constructor stub
+	}
+}

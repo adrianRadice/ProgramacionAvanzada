@@ -1,0 +1,28 @@
+package test;
+
+import grafo.Arista;
+import grafo.GrafoNoDirigido;
+import grafo.Nodo;
+
+public class test {
+	public static void main(String args[]) throws Exception {
+		GrafoNoDirigido g = new GrafoNoDirigido(5,Integer.MAX_VALUE);
+		
+		Nodo a = new NodoNombrado(0,"a");
+		Nodo b = new NodoNombrado(1,"b");
+		Nodo c = new NodoNombrado(2,"c");
+		Nodo d = new NodoNombrado(3,"d");
+		Nodo e = new NodoNombrado(4,"e");
+		
+		g.setConexion(new Arista(a,b,1));
+		g.setConexion(new Arista(b,c,1));
+		g.setConexion(new Arista(c,d,1));
+		g.setConexion(new Arista(d,e,1));
+
+		System.out.println(g);
+		
+		
+		
+		
+	}
+}

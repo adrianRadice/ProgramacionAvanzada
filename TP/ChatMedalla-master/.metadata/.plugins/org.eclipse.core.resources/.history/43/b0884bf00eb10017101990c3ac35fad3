@@ -1,0 +1,49 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import Herramientas.Consola;
+
+public class Cliente{
+	
+	public Cliente(String ipServer){
+		
+	}
+	
+	public static void main(String args[]) throws IOException {
+
+		String ip;
+		String nick;
+		BufferedReader buffer = new BufferedReader( new InputStreamReader(System.in) );
+		
+		System.out.println("Bienbenido");
+		
+		do 
+		{
+			System.out.print("Ingrese IP del Servidor >:");
+			ip = buffer.readLine();
+		}
+		while(!validate(ip));
+		
+		System.out.println("Verificando Conexion.");
+		
+		System.out.println("Actualmente en la sala se encuentran: ");
+
+		
+		System.out.print("Ingrese su NICK >:");
+		nick = buffer.readLine().replaceAll(" ","");
+		buffer.close();
+		
+		
+	}
+	
+	public static boolean validate(final String ip) {
+	    String PATTERN = "^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$";
+	    return ip.matches(PATTERN);
+	}
+ 
+
+}

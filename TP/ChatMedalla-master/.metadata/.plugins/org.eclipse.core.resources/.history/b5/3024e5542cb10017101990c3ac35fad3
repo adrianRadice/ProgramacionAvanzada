@@ -1,0 +1,49 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class CSend extends Thread{
+
+	private BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+	private DataOutputStream output;
+	
+	public CSend(String nombre,DataOutputStream output ) {
+		super(nombre);		
+		this.output = output;
+		
+	}
+
+	public void run(){
+		boolean run = true;
+		while(run){
+			try {
+				String mensaje = leerConsola();
+				
+				if(mensaje.equals("exit"))
+				{	
+					run = false;
+					output.writeUTF("!:exit");
+				}
+				else
+					output.writeUTF(mensaje);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+	}
+	
+
+	
+	public String leerConsola() throws IOException{
+		System.out.print(">:");
+		return  br.readLine();
+	}
+
+	
+	
+}

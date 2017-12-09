@@ -1,0 +1,8 @@
+package grafo;
+
+public class ExceptionMatrizSimetrica extends IndexOutOfBoundsException {
+    public ExceptionMatrizSimetrica(String mensaje)
+    {
+        super(mensaje);
+    }
+}

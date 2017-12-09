@@ -1,0 +1,59 @@
+SHELL:
+Divide el vector en h-vectores lo mas grande posible segun la serie establecida por (Hi = 1 + 3 * H[i-1] ).
+Los h-vectores se ordenan por inserccion.
+
+Operaciones Basicas:
+	Desplazamiento.
+	Comparacion.
+
+Ejemplo ASC: EJEMPLOAORDENAR
+h = 13
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13
+E  J  E  M  P  L  O  A  O  R   D   E   N 
+A R
+salida=>A J E M P L O A O R D E N E R
+
+h=4
+h1 h2 h3 h4
+A  J  E  M    A E D A 
+P  L  O  A => N J E E 
+O  R  D  E    O L O M 
+N  E  R	      P R R
+salida=> A E D A N J E E O L O M P R R
+
+h=1 -> INSERCCION
+A E D A N J E E O L O M P R R
+A E
+A D E
+A A D E 
+A A D E N
+A A D E J N
+A A D E E J N
+A A D E E E J N O 
+A A D E E E J L N O 
+A A D E E E E J L M N O
+
+salida=> A A D E E E E J L M N O P R R
+
+Ejemplo DSC: EJEMPLOAORDENAR
+h = 13
+E J E M P L O A O R D E N 
+A R
+E R E M P L O A O R D E N A J
+
+h=4
+P R O M 
+O R J E 
+N L E A 
+E A D
+P R O M O R J E N L E A E A D
+
+h=1
+P R O M O R J E N L E A E A D
+R R P O O N M L J E E E D A A
+
+Caracteristicas:
+	Sensibilidad: Si
+	Estabilidad:  No
+
+Big O: n^(3/2)

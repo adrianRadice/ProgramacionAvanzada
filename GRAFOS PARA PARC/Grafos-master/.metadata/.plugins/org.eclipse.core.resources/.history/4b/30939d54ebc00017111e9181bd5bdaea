@@ -1,0 +1,10 @@
+package grafo;
+
+public class GrafoNoDirigido {
+
+	private int cantidadDeNodos;
+	private MatrizSimetrica matrizSimetrica ;
+	
+	
+	
+}

@@ -1,0 +1,130 @@
+QuickSort:
+Tomas un pivot. Un ejemplo el ultimo elemento. Posicionas i y j en los extremos
+ si i > p y j < p se intercambia cuando i se cruza con j se intercambia i con el pivot
+ recordar que luego se divide la lista de elementos en dos de acuerdo a la posicion del pivot
+ y se repite el proceso.
+
+ Cuando la cantidad de elementos a ordenar es grande se puede tranforar la recursividad de quicksort en uno no recursivo
+ tomando el primer elemento el ultimo y el del medio. Los ordenas y los posicionas en el conjuntod e elemento, y tomas de nuevo al del medio como pivot.
+
+Operaciones Basicas:
+	Desplazamiento.
+	Comparacion.
+
+Ejemplo ASC: 
+5 - 3 - 7 - 6 - 2 - 1 - 4
+i                   J   P
+*I>*P *J<*P INTERCAMBIO Y AVANZO
+1 - 3 - 7 - 6 - 2 - 5 - 4
+    I.          J       P
+*I<*P AVANZO J<P NO OPERA
+1 - 3 - 7 - 6 - 2 - 5 - 4
+        I       J       P
+*I>*P *J<*P INTERCAMBIO Y AVANZO
+1 - 3 - 2 - 6 - 7 - 5 - 4
+           I|J          P
+I=J INTERCAMBIO *I CON *P Y p = i
+1 - 3 - 2 - 4 - 7 - 5 - 6
+            P          
+
+
+SEPARAMOS EN DOS TOMANDO DE REF PA POSICION DE P
+    1 - 3 - 2
+    I   J   P
+    *I<*P AVANZO *J>*P AVANZO
+    1 - 3 - 2
+    J   I   P
+    *I<*J INTERCAMBIO *I CON *P
+    1 - 2 - 3
+
+7 - 5 - 6
+I   J   P
+*I>*P *J<*P INTERCAMBIO Y AVANZO
+5 - 7 - 6
+J   I   P
+*I<*J INTERCAMBIO *I CON *P
+5 - 6 - 7
+J   I   P
+
+UNO LAS SUBLISTAS
+1 2 3 5 6 7
+
+
+
+EJEMPLO 2: TOMANDO EL ULTIMO COMO PIVOTE
+3 44 38 5 47 15 2
+I            J  p
+I          J
+I       J
+I     J
+I J
+I|J
+2 44 38 5 47 15 3
+P
+
+44 38 5 47 15 3
+I           J P
+I.      j
+I.    j
+I. j
+Ij
+3 38 5 47 15 44
+P
+
+38 5 47 15 44
+I       J  P
+   I    J
+     I. J
+38 5 15 47 44
+     J.  I.P
+38 5 15 44 47
+         P
+38 5 15
+I. J P
+5. 38 15
+J. I. P 
+5. 15. 38
+
+=>2 3 5 15 38 44 47
+
+EJEMPLO 2': TOMANDO EL MEDIO COMO PIVOTE
+3 44 38 5 47 15 2
+3 44 38 2 47 15 5
+I            J  P
+  I.      J
+  i.    j
+3 2 38 44 47 15 5
+    i|j
+3 2 5 44 47 15 38
+    P
+3 2
+P
+2   3P
+I|J
+2   3P
+J.  I
+2.  3 =======
+
+44 47 15 38
+   P
+44 38 15 47
+I.    J  P
+   I  J
+      I|J
+44 38 15 47
+         P
+
+44 38 15
+44 15 38
+I. J. P
+15 44 38
+
+15 38 44
+
+=> 2 3 5 15 38 44
+
+Caracteristicas:
+	Sensibilidad: NO
+	Estabilidad:  NO
+
+Big O: n*log(n)

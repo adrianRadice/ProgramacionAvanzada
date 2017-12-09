@@ -1,0 +1,28 @@
+package grafo;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BFS {
+	public static void recorrer(Igrafo g, Nodo nodoInicial){
+		
+		boolean[] visitado = new boolean[g.getCantidadDeNodos()];
+		Queue<Nodo> cola = new LinkedList();
+		
+		visitado[nodoInicial.getIndex()] = true;
+		cola.add(nodoInicial);
+		
+		while(!cola.isEmpty())
+		{
+			Nodo n = cola.poll();
+			System.out.println(n.toString());
+			for(Nodo ady : g.getAdyacentes(n))
+			{
+				if(visitado[ady.getIndex()] == false)
+				{
+					cola.add(ady);					
+				}
+			}
+		}
+	}
+}

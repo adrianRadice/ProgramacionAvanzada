@@ -1,0 +1,7 @@
+package grafo;
+
+public class Arista {
+	private Nodo nodoIzquierdo;
+	private Nodo nodoDerecho;
+	private 
+}

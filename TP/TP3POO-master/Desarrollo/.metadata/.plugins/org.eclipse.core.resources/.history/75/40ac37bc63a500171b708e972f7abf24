@@ -1,0 +1,23 @@
+package personaje;
+
+import item.Peleable;
+import item.Puñal;
+import item.Unidad;
+
+public class Lancero  extends Unidad{
+
+	public Lancero(){
+		super(150);
+	}
+	
+	@Override
+	public int getAtaque() {
+		return 25;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 0;
+	}
+	
+}

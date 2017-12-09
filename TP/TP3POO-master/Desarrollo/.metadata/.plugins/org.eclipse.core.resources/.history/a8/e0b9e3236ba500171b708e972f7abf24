@@ -1,0 +1,20 @@
+package personaje;
+
+public class Lancero  extends Unidad{
+
+	public Lancero(int posicion){
+		super(150,posicion,1);
+	}
+	
+	@Override
+	public double getAtaque() {
+		return 25;
+	}
+
+	@Override
+	public int getEnergia() {
+		return 1;
+	}
+
+	
+}

@@ -1,0 +1,9 @@
+package Cliente;
+
+public class CSend extends Thread{
+
+	public CSend(String nombre) {
+		super(nombre);
+	}
+
+}

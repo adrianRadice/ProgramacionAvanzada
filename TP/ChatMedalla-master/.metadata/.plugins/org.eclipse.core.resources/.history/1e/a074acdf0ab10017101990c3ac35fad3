@@ -1,0 +1,39 @@
+package Cliente;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import Herramientas.Consola;
+
+public class Cliente{
+	
+	public Cliente(String ipServer){
+		
+	}
+	
+	public static void main(String args[]) throws IOException {
+
+		BufferedReader buffer = new BufferedReader( new InputStreamReader(System.in) );
+		
+		System.out.println("Bienbenido");
+		
+		System.out.print("Ingrese IP del Servidor >:");
+		buffer.readLine();
+
+		System.out.println("Verificando Conexion.");
+		
+		System.out.println("Actualmente en la sala se encuentran: ");
+
+		
+		System.out.print("Ingrese su NICK >:");
+		buffer.readLine();
+		
+		
+		buffer.close();
+		
+		
+	}
+	
+
+}

@@ -1,0 +1,266 @@
+package personaje;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import item.Capa;
+import item.Escudo;
+import item.Puñal;
+
+public class ArqueroTest {
+	private final double ATAQUE = 5;
+	private final double SALUD = 50;
+	private final double ENERGIA = 20;
+	private final double DEFENSA = 1;
+
+	private Unidad unidad;
+	
+	@Test
+	public void crearNuevoTest(){
+		unidad = new Arquero(1);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}
+	
+	@Test
+	public void equiparEscudoTest(){
+		unidad = new Arquero(1);
+		unidad = new Escudo(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA + DEFENSA * 0.4)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparPunialTest(){
+		unidad = new Arquero(1);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE + 3)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA -3)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+
+	@Test
+	public void equiparCapaTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(), ATAQUE - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparEscudoCapaTest(){
+		unidad = new Arquero(1);
+		unidad = new Escudo(unidad);
+		unidad = new Capa(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE - ATAQUE * 0.1 )   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA + DEFENSA * 0.4)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparCapaEscudoTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		unidad = new Escudo(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE - ATAQUE * 0.1 )   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA + DEFENSA * 0.4)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparEscudoPunialTest(){
+		unidad = new Arquero(1);
+		unidad = new Escudo(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),   ATAQUE + 3 )   == 0 && 
+					Double.compare(unidad.getEnergia(),  ENERGIA)  == 0 &&
+					Double.compare(unidad.getDefensa() , (DEFENSA + DEFENSA * 0.4) - 3 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+
+	@Test
+	public void equiparPunialEscudoTest(){
+		unidad = new Arquero(1);
+		unidad = new Puñal(unidad);
+		unidad = new Escudo(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),   ATAQUE + 3 )   == 0 && 
+					Double.compare(unidad.getEnergia(),  ENERGIA)  == 0 &&
+					Double.compare(unidad.getDefensa() , (DEFENSA + DEFENSA * 0.4) - 3 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+		
+	@Test
+	public void equiparPunialCapaTest(){
+		unidad = new Arquero(1);
+		unidad = new Puñal(unidad);
+		unidad = new Capa(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE +3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA -3)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparCapaPunialTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE +3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA -3)   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+		
+	@Test
+	public void equiparEscudoCapaPunialTest(){
+		unidad = new Arquero(1);
+		unidad = new Escudo(unidad);
+		unidad = new Capa(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE + 3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA - 3 + DEFENSA*0.4 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparCapaEscudoPunialTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		unidad = new Escudo(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE + 3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA - 3 + DEFENSA*0.4 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+	
+	@Test
+	public void equiparCapaPunialEscudoTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		unidad = new Escudo(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE + 3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA - 3 + DEFENSA*0.4 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+
+	@Test
+	public void equiparPunialCapaEscudoTest(){
+		unidad = new Arquero(1);
+		unidad = new Capa(unidad);
+		unidad = new Escudo(unidad);
+		unidad = new Puñal(unidad);
+		assertTrue(
+					Double.compare(unidad.getPosicion(), 1)   == 0 &&
+					Double.compare(unidad.getAtaque(),  ATAQUE + 3 - ATAQUE*0.1)   == 0 && 
+					Double.compare(unidad.getEnergia(), ENERGIA * 2)  == 0 &&
+					Double.compare(unidad.getDefensa() , DEFENSA - 3 + DEFENSA*0.4 )   == 0 && 
+					Double.compare(unidad.getSalud(),    SALUD) == 0
+				  );
+	}	
+
+	@Test
+	public void distanciaNoValidaParaCombate(){
+		Unidad u1 = new Arquero(0);
+		Unidad u2 = new Soldado(6);
+		assertFalse(u1.puedoAtacar(u2));
+		u1 = new Arquero(0);
+		u2 = new Arquero(1);
+		assertFalse(u1.puedoAtacar(u2));
+		u1 = new Arquero(1);
+		u2 = new Arquero(1);
+		assertFalse(u1.puedoAtacar(u2));
+	}
+	
+	@Test
+	public void distanciaValidaParaCombate(){
+		Unidad u1 = new Arquero(5);
+		Unidad u2 = new Soldado(7);
+
+		for(int i=0 ; i<4; i++){
+			assertTrue(u1.puedoAtacar(u2));
+			u2.avanzar();
+		}
+	}
+	
+	@Test
+	public void puedeRestaurarEnergia(){
+		unidad = new Arquero(1);
+		assertTrue(unidad.puedeRestauraEnergia());
+	}
+
+	@Test
+	public void agotarEnergia(){
+		unidad = new Arquero(1);
+		Unidad victima = new Soldado(3);
+		for(double i = ENERGIA ; i>0 ; i-= 1){
+			unidad.atacar(victima);
+		}
+		assertEquals(unidad.getEnergia(), 0, 0.1);
+	}
+	
+	@Test
+	public void restaurarEnergia(){
+		unidad = new Arquero(1);
+		Unidad victima = new Soldado(3);
+		for(double i = ENERGIA ; i>0 ; i-= 1){
+			unidad.atacar(victima);
+		}
+		unidad.restaurarEnergia();
+		assertEquals(unidad.getEnergia(), 6, 0.1);
+		
+	}
+	
+}

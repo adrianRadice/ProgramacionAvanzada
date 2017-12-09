@@ -1,0 +1,47 @@
+package grafo;
+;
+
+public class Grafo {
+
+	public MatrizSimetrica aristas;
+	public Nodo[] nodos;
+	
+	public Grafo(int cantidadDeNodos){
+		aristas= new MatrizSimetrica(cantidadDeNodos,Integer.MAX_VALUE);
+		nodos = new Nodo[cantidadDeNodos];
+	}
+	
+	public void addNodo(Nodo n){
+		nodos[n.getIndex()] = n;
+	}
+	
+	public void addArista(Arista a){
+		aristas.setValue(a.getNodoIzq().getIndex(), a.getNodoDer().getIndex(), a.getCosto());
+	}
+
+	public int getCantidadDeNodos() {
+		// TODO Auto-generated method stub
+		return aristas.getOrdenMatriz();
+	}
+
+	
+	public void imprimirGrafo(){
+		for(Nodo n : nodos){
+			for(int i=0; i< nodos.length; i++){
+				if(n.getIndex() != nodos[i].getIndex()){
+					int costo = aristas.getValue(n.getIndex(),  nodos[i].getIndex());
+					if(costo != aristas.getValorInifinito()){
+						System.out.print(n.getNombre());
+						System.out.print(" ");
+						System.out.print(costo);
+						System.out.print(" ");
+						System.out.print(nodos[i].getNombre());	
+						System.out.println();
+					}
+				}
+			}
+		}
+	}
+	
+	
+}

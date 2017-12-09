@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="getPeleable().getDefensa()"/>\n<expression enabled\="true" text\="getUnidad().getGastoEnergetico() "/>\n<expression enabled\="true" text\="getUnidad().getEnergia() "/>\n<expression enabled\="true" text\="(int)getGastoEnergetico()"/>\n<expression enabled\="true" text\="getGastoEnergetico()"/>\n<expression enabled\="true" text\="getDefensa(valor)"/>\n</watchExpressions>\n
